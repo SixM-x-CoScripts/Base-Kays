@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen Kay</title>
+    <link rel="stylesheet" href="style/main.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="script/main.js"></script>
+</head>
+<body x-data="Main" x-init="listen">
+
+    <div class="container">
+        <img draggable="false" src="img/logo.png" alt="" class="logo">
+        <div class="nav">
+            <template x-for="button in buttons">
+                <div class="button" :class="button.selected ? 'selected':''" x-text="button.label" @click="button.selected = selectBtn(button.selected)">Home</div>
+            </template>
+        </div>
+        <div class="home" x-show="buttons[0].selected" x-transition:enter.duration.100ms>
+            <!--<div class="label">Bienvenue sur Wise</div>-->
+            <!--<div class="desc">Une expérience de jeu équilibrée ne vous apportera que de bonnes émotions</div>-->
+            <!--<div class="desc2"><br>Une expérience de jeu équilibrée ne vous apportera que de bonnes émotions</div>-->
+            <div class="label2">Nos Réseaux</div>
+            <!--<div class="desc3" style="left: 0; top: 5.5vw;"><br>Voici nos réseaux :</div>-->
+            <div class="discord-container">
+                <div class="discord-bg">
+                    <img draggable="false" src="img/discord-logo.svg" alt="">
+                </div>
+                <div class="label">Discord </div>
+                <div class="member-count" x-text="'Plus de ' + memberCount + ' membres'"></div>
+                <a class="btn" :href="DiscordInviteLink" target="_blank" @click="window.invokeNative('openUrl', DiscordInviteLink);">Rejoindre <img src="img/arrow.svg" alt="" x-transition></a>
+            </div>
+            <div class="discord-container">
+                <div class="discord-bg">
+                    <img draggable="false" src="img/tiktok-logo.svg" alt="">
+                </div>
+                <div class="label">TikTok</div>
+                <div class="member-count" x-text="'Regardez nos TikToks'"></div>
+                <a class="btn" :href="TiktokInviteLink" target="_blank" @click="window.invokeNative('openUrl', TiktokInviteLink);">Suivre <img src="img/arrow.svg" alt="" x-transition></a>
+            </div>
+            <div class="discord-container">
+                <div class="discord-bg2">
+                    <img draggable="false" class="boutiqueimg" src="img/cart-shopping-solid.svg" alt="">
+                </div>
+                <div class="label">Boutique</div>
+                <div class="member-count" x-text="'Soutenir le serveur'"></div>
+                <a class="btn" :href="BoutiqueInviteLink" target="_blank" @click="window.invokeNative('openUrl', BoutiqueInviteLink);">Soutenir <img src="img/arrow.svg" alt="" x-transition></a>
+            </div>
+        </div>
+        <div class="news" x-show="buttons[1].selected" x-transition:enter.duration.100ms>
+            <div class="label2">Nouveautés</div>
+            <div class="desc" style="left: 1em; top: 2.5vw;"><br>Les dernières mises à jour du serveur :</div>
+            <div class="news-container">
+                <div class="news">
+                    <div class="date">24-02-25</div>
+                    <div class="label">History V</div>
+                    <div class="news-desc">Ouverture de notre serveur pvp</div>
+                    <img draggable="false" src="img/start.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="team" x-show="buttons[2].selected" x-transition:enter.duration.100ms>
+            <div class="label3">Créateurs</div>
+            <!--<div class="desc" style="left: 0; top: 4.5vw;"><br>Notre belle équipe permettant de vous faire vivre cette expérience hors du commun !</div>-->
+            <div class="team-container">
+                <template x-for="member in team">
+                    <div class="member">
+                        <img :src="member.img" alt="" draggable="false">
+                        <div class="discord" x-text="member.discord"></div>
+                        <div class="role" x-text="member.role"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <div class="music-container" :class="musicOpen ? 'active':''">
+        <!-- <img src="img/music.png" alt=""> -->
+        <!-- <div class="circle" @click="musicOpen = !musicOpen"> 
+            <div class="bar1"></div>
+            <div class="bar2" :class="musicOpen ? 'active':''"></div>
+        </div> -->
+        <div class="visualizer">
+            <div class="music-bar" :class="isMusicPlaying ? 'active':''"></div>
+            <div class="music-bar" :class="isMusicPlaying ? 'active2':''"></div>
+            <div class="music-bar" :class="isMusicPlaying ? 'active3':''"></div>
+        </div>
+        <div class="info" x-show="musicOpen">
+            <div class="label" x-text="musicList[currentSong].label"></div>
+            <div class="author" x-text="musicList[currentSong].author"></div>
+            <img src="img/back.svg" alt="" class="back" @click="prev()">
+            <img src="img/pause.svg" alt="" class="pause" x-show="isMusicPlaying" @click="pause()">
+            <img src="img/play.svg" alt="" class="play" x-show="!isMusicPlaying" @click="play()">
+            <img src="img/forward.svg" alt="" class="forward" @click="next()">
+            <div class="volume-control">
+                <label for="volume-slider"></label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" x-model="musicVolume">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

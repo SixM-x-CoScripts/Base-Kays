@@ -1,0 +1,422 @@
+
+    <!-- HELP -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style rel="stylesheet" type="text/css">
+        @font-face {
+            font-family: bedave;
+            src: url(./fonts/arial.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+        }
+
+        html, body {
+            font-family: bedave, sans-serif;
+        }
+
+        /* showHelpNotify */
+
+        #uihelp {
+            font-family: bedave, sans-serif;
+            position: fixed;
+            top: 20px;
+            left: 45px;
+            font-weight: 600;
+        }
+
+        #wrapperhelp {
+            font-family: bedave, sans-serif;
+            height: 34px;
+            border-radius: 3px;
+            padding: 4px;
+            margin-bottom: 3px;
+            min-width: 330px;
+            margin: 0 0 8px 0;
+            background-color: rgba(22, 21, 21, 0.582);
+            color: #ffffff;
+            /* LEbedave  */
+            border-left: 3px solid #0051ff;
+        }
+
+        #mainhelp {
+            margin: 4px 8px 15px 15px;
+            position: relative;
+        }
+
+        #mainhelp::before {
+            font-family: bedave, sans-serif;
+            font-size: 15px;
+            left: -2px;
+            color: #ffffff;
+        }
+
+        #messagehelp {
+            font-family: bedave, sans-serif;
+            position: relative;
+            top: 2px;
+            left: 1px;
+            font-size: 15px;
+        }
+
+        .active {
+            opacity: 1;
+            animation: fadeInLeft;
+            animation-duration: 1s;
+        }
+
+        .hiding {
+            opacity: 0;
+            animation: fadeOutLeft;
+            animation-duration: 1s;
+        }
+
+        #messagehelp h1 {
+            font-family: bedave, sans-serif;
+            display: inline-block;
+            border-radius: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #000000;
+            background: rgb(255, 255, 255);
+            font-size: 15px;
+        }
+
+        #messagehelp hbedave {
+            font-family: bedave, sans-serif;
+            display: inline-block;
+            font-size: 15px;
+            color: #0051ff;
+        }
+
+    </style>
+
+    <!-- fontawesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Script type -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/popper.js@1"></script>
+    <script type="text/javascript" src="https://unpkg.com/tippy.js@5"></script>
+</head>
+
+<body>
+    <div id="uihelp" class="hiding">
+        <div id="wrapperhelp">
+            <div id="mainhelp">
+                <div id="messagehelp">
+                    <!-- Your content goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stole.js"></script>
+</body>
+
+</html>
+
+    
+    <!-- CHAT -->
+    <html>
+      <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+      <link href="css/animate.min.css" rel="stylesheet">
+      <link href="css/chat.css" rel="stylesheet"></link>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    </head>
+    <body>
+      <div id="app"></div>
+    
+      <script type="text/x-template" id="app_template">
+          <div id="app">
+              <div class="chat-window" :style="this.style" :class="{ 'fadeOutUp animated': !showWindow, 'hidden': shouldHide }">
+                  <div class="chat-messages" ref="messages">
+                      <message v-for="msg in messages"
+                          :templates="templates"
+                          :multiline="msg.multiline"
+                          :args="msg.args"
+                          :color="msg.color"
+                          :template="msg.template"
+                          :template-id="msg.templateId"
+                          :key="msg">
+                      </message>
+                  </div>
+              </div>
+              <div class="chat-input" v-show="showInput">
+                  <div>
+                      <span class="prefix"><i class="fas fa-paper-plane fa-lg"></i></span>
+                      <input v-model="message"
+                          ref="input"
+                          type="text"
+                          placeholder="Tapez une commande.."
+                          autofocus
+                          spellcheck="false"
+                          @keyup.esc="hideInput"
+                          @keyup="keyUp"
+                          @keydown="keyDown"
+                          @keypress.enter.prevent="send">
+                      </input>
+                  </div>
+                  <suggestions :message="message" :suggestions="suggestions"></suggestions>
+              </div>
+          </div>
+      </script>
+    
+      <script type="text/x-template" id="message_template">
+          <div class="msg" :class="{ multiline }">
+              <span v-html="textEscaped"></span>
+          </div>
+      </script>
+    
+      <script type="text/x-template" id="suggestions_template">
+          <div class="suggestions-wrap" v-show="currentSuggestions.length > 0">
+              <ul class="suggestions">
+                  <li class="suggestion" v-for="s in currentSuggestions">
+                      <p>
+                          <span :class="{ 'disabled': s.disabled }">
+                              {{s.name}}
+                          </span>
+                          <span class="param"
+                                      v-for="(p, index) in s.params"
+                                      :class="{ 'disabled': p.disabled }">
+                              [{{p.name}}]
+                          </span>
+                      </p>
+                      <small class="help">
+                          <template v-if="!s.disabled">
+                              {{s.help}}
+                          </template>
+                          <template v-for="p in s.params" v-if="!p.disabled">
+                              {{p.help}}
+                          </template>
+                      </small>
+                  </li>
+              </ul>
+          </div>
+      </script>
+    
+      <script src="js/suggestions.js" type="text/javascript"></script>
+      <script src="js/message.js" type="text/javascript"></script>
+      <script src="js/chat.js" type="text/javascript"></script>
+    
+      <script type="text/javascript">
+          window.post = (url, data) => {
+              var request = new XMLHttpRequest();
+              request.open('POST', url, true);
+              request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+              request.send(data);
+          }
+    
+          const instance = new Vue({
+              el: '#app',
+              render: h => h(APP),
+          });
+    
+          window.emulate = (type, detail = {}) => {
+              detail.type = type;
+              window.dispatchEvent(new CustomEvent('message', {
+                  detail,
+              }));
+          };
+      </script>
+      </body>
+    </html>
+     
+
+
+
+<!--  -->
+
+</html>
+
+
+<html>
+	<head>
+        <link rel="stylesheet" href="index.css" type="text/css">
+		<link rel="stylesheet" href="wz_notification.css" type="text/css">
+
+		<script src="nui://game/fw_interactjquery.js" type="text/javascript"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<script src="./index.js" type="text/javascript"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head> 
+	<body>
+ 
+		
+
+			<div id="container" style="display: none;"> 
+				<div id="textContainer"></div>
+			</div> 
+			<div class="container" style="display: none;"> 
+			</div> 
+
+
+
+			<div class="wzn_main">
+                <div class="wzn_container" style="display: none;">
+                    <div class="wzn_container_child">
+                        <h1>Information</h1> 
+                        <h2>Titre</h2> 
+                        <input class="message" type="text"> 
+                        <h2>Message</h2>
+                        <textarea></textarea>
+                        <div class="job_images">
+                            <input type="text" style="display: none;">
+                            <img src="./images/fb_6acea5bf96377b0ac10392a280cc5d03.png"> 
+                        </div>
+                        <div class="image_interactions">
+                          
+                            <i class="left fa fa-arrow-left" aria-hidden="true"></i>
+                            <i class="right fa fa-arrow-right" aria-hidden="true"></i>
+                            <div class="customUrl">Custom Url</div>
+                        </div>
+                      
+                        <div class="validate_button">Valider les informations</div>
+                    </div> 
+                </div> 
+
+			
+			
+	</body>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+    </script>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>    
+    <link rel="stylesheet" href="css/compass.css">
+</head>
+<body>
+
+    <div class="compassui">
+        <div class="compass-bar">
+            <svg id="compass1">
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="-90"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-81"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-72"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-63"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-54"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="-45"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-36"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-27"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-18"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="-9"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="0"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="9"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="18"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="27"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="36"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="45"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="54"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="63"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="72"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="81"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="90"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="99"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="108"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="117"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="126"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="135"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="144"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="153"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="162"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="171"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="180"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="189"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="198"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="207"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="216"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="225"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="234"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="243"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="252"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="261"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="270"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="279"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="288"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="297"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="306"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="315"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="324"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="333"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="342"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="351"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="360"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="369"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="378"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="387"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="396"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="4" x="405"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="414"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="423"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="432"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="2" x="441"/>
+                <rect width="1" stroke="black" fill="white" stroke-width="0.3" stroke-opacity="0.8" height="6" x="450"/>
+            </svg>
+
+            <svg id="compass2">
+                <text x="0"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">N</text>
+                <text x="360"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">N</text>
+
+                <text x="315"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">NW</text>
+                <text x="-45"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">NW</text>
+                
+                <text x="45"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">NE</text>
+                <text x="405"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">NE</text>
+                
+                <text x="90"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">E</text>
+                <text x="135"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">SE</text>
+                <text x="180"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">SE</text>
+                <text x="225"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">SW</text>
+                <text x="270"  y="1.5" stroke="black" fill="white" stroke-width="0.4" stroke-opacity="0.8" text-anchor="middle">W</text>
+            </svg>
+        </div>
+
+        <div class="compas-line">
+            <div class="compass-bar">|</div>
+            <div class="compass"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

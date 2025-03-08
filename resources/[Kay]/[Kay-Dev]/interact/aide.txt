@@ -1,0 +1,27 @@
+Fans le fichier frwk\client\functions.lua remplacer la functions 
+
+ESX.ShowHelpNotification = function(msg)
+    exports.kay_interact:ShowHelpNotification({
+		message = msg,
+	})
+end
+
+par 
+
+ESX.ShowHelpNotification = function(msg)
+    exports.kay_interact:ShowHelpNotification({
+		message = msg,
+	})
+end = function(msg)
+    exports.fw_interact:ShowHelpNotification({
+		message = msg,
+	})
+end
+
+si vous tenter de rename la resources sans savoir bien le faire il ce peut que cela fonctionne pas !
+
+
+
+
+
+MADE BY SERTY LEAKS

@@ -1,0 +1,110 @@
+[
+  {
+    "category": {
+      "name": "lips",
+      "label": "Lèvres",
+      "icon": "fa-thin fa-lips",
+      "data": [
+        {
+          "label": "Type lipstick",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "lipstick_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range"
+        },
+        {
+          "label": "épaisseur lipstick",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "lipstick_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range"
+        },
+        {
+          "label": "Couleur lipstick 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "lipstick_3",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color_makeup"
+        },
+        {
+          "label": "Couleur lipstick 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "lipstick_4",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color_makeup"
+        }
+      ]
+    }
+  },
+  {
+    "category": {
+      "name": "face",
+      "label": "Visage",
+      "icon": "fa-thin fa-head-side",
+      "data": [
+        {
+          "label": "Lentilles colorées",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "eye_color",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range"
+        },
+        {
+          "label": "Type maquillage",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "makeup_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range"
+        },
+        {
+          "label": "épaisseur maquillage",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "makeup_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range"
+        },
+        {
+          "label": "Couleur maquillage 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "makeup_3",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color_makeup"
+        },
+        {
+          "label": "Couleur maquillage 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "makeup_4",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color_makeup"
+        }
+      ]
+    }
+  }
+]

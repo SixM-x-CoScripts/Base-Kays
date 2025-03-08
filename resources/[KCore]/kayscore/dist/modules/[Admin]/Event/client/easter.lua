@@ -1,0 +1,168 @@
+-- Citizen.CreateThread(function()
+--     if EventConfig.EggsEvent.active == false then return end
+
+--     local easter_temp_props = {}
+--     local easter_bear_starting = false
+    
+--     RegisterNetEvent('kayscore:event:easter:startLaunch', function()
+--         local menu = RageUI.CreateMenu("Pâques", "Intéraction")
+    
+--         local easter = {
+--             zoneName = nil,
+--             positionZone = nil,
+--             positions = {},
+--         }
+        
+--         RageUI.Visible(menu, not RageUI.Visible(menu))
+    
+--         while RageUI.Visible(menu) do
+--             Citizen.Wait(0)
+--             RageUI.IsVisible(menu, function()
+--                 RageUI.Button("Nom de la Zone", easter.zoneName or "", {}, true, {onSelected = function()
+--                     local name = ESX.GetTextInput("Nom de la zone")
+--                     if not name or name == "" then
+--                         ESX.ShowNotification("~r~Le nom de la zone ne peut pas être nul")
+--                         return
+--                     end
+--                     easter.zoneName = name
+--                 end})
+--                 RageUI.Button("Position de la Zone", easter.positionZone or "", {}, true, {onSelected = function()
+--                     easter.positionZone = GetEntityCoords(PlayerPedId())
+--                 end})
+--                 RageUI.Button(("Actuellement %s positions"):format(#easter.positions), nil, {RightLabel = ""}, true, {
+--                     onSelected = function()
+--                     end
+--                 })
+--                 RageUI.Button("Définir une position", "Défini une position là où vous êtes ou une peluche sera cachée", {}, true, {onSelected = function()
+--                     local playerCoords = GetEntityCoords(PlayerPedId())
+--                     local model = GetHashKey('v_club_vu_bear')
+--                     RequestModel(model)
+--                     while not HasModelLoaded(model) do
+--                         Citizen.Wait(1)
+--                     end
+--                     local obj = CreateObject(model, playerCoords.x, playerCoords.y, playerCoords.z - 0.98, false, false, false)
+--                     FreezeEntityPosition(obj, true)
+--                     table.insert(easter.positions, {x = playerCoords.x, y = playerCoords.y, z = playerCoords.z - 0.98})
+--                     table.insert(easter_temp_props, obj)
+--                     SetModelAsNoLongerNeeded(model)
+--                 end})
+--                 RageUI.Button("Retirer la dernière position", nil, {}, true, {onSelected = function()
+--                     if #easter_temp_props > 0 then
+--                         DeleteEntity(easter_temp_props[#easter_temp_props])
+--                         table.remove(easter_temp_props)
+--                         table.remove(easter.positions)
+--                     end
+--                 end})
+--                 RageUI.Button('Confirmer', nil, {Color = {BackgroundColor = {0,229,31,150}}}, true, {
+--                     onSelected = function()
+--                         TriggerServerEvent('kayscore:event:easter:startEvent', easter)
+--                         RageUI.CloseAll()
+--                     end
+--                 })
+--             end)
+--         end
+--     end)
+    
+--     RegisterNetEvent('kayscore:event:easter:startEvent')
+--     AddEventHandler('kayscore:event:easter:startEvent', function(data)
+--         local easter_positions = data.positions
+--         easter_bear_starting = true
+--         print("Événement de Pâques démarré avec les positions suivantes:")
+--         for i, pos in ipairs(easter_positions) do
+--             print(string.format("Position %d: x = %f, y = %f, z = %f", i, pos.x, pos.y, pos.z))
+--         end
+    
+--         while easter_bear_starting do 
+--             Citizen.Wait(0)
+    
+--             for index, v in pairs(easter_positions) do 
+--                 local position = vector3(v.x, v.y, v.z + 0.98)
+    
+--                 if #(position - GetEntityCoords(PlayerPedId())) < 1.5 then
+--                     DrawInstructionBarNotification(v.x, v.y, v.z + 0.10, "Appuyez sur [ ~g~E~w~ ] pour intéragir")
+--                     if IsControlJustPressed(1, 51) then
+--                         local propToDelete = easter_temp_props[index]
+--                         if DoesEntityExist(propToDelete) then
+--                             DeleteEntity(propToDelete)
+--                         end
+--                         table.remove(easter_positions, index)
+--                         table.remove(easter_temp_props, index)
+--                         TriggerServerEvent('event:event:easter:foundBear', index)
+--                         break
+--                     end
+--                 end
+--             end
+--         end
+--     end)
+    
+--     RegisterNetEvent('kayscore:event:easter:stopEvent')
+--     AddEventHandler('kayscore:event:easter:stopEvent', function()
+--         easter_bear_starting = false
+--         for _, obj in ipairs(easter_temp_props) do
+--             DeleteEntity(obj)
+--         end
+--         easter_temp_props = {}
+--     end)    
+
+--     Citizen.CreateThread(function()
+--         while ESX == nil do Citizen.Wait(1) end
+
+--         ESX.addBlips({
+--             name = 'easter_market',
+--             label = 'Marché de Pâques',
+--             position = vector3(325.648376, -418.535309, 44.911488),
+--             sprite = 141,
+--             display = 4,
+--             scale = 0.75,
+--             color = 5,
+--             type = "blip_events",
+--         })
+--         AddZones("easter_market", {
+--             Position = vector3(325.648376, -418.535309, 44.911488),
+--             Dist = 10,
+--             Public = true,
+--             Job = nil,
+--             Job2 = nil,
+--             GradesJobRequire = false,
+--             GradesJob = {},
+--             InVehicleDisable = true,
+--             Blip = {
+--                 Active = false,
+--             },
+--             ActionText = ('Appuyez sur [ %sE~w~ ] pour intéragir'):format(EventConfig.GTACOLOR),
+--             marker = true,
+--             Action = function()
+--                 openPartyMenu()
+--             end
+--         })
+--     end)
+
+--     function openPartyMenu()
+--         local menu = RageUI.CreateMenu("Pâques", "Intéraction")
+--         local menuShop = RageUI.CreateSubMenu(menu, "Pâques", "Intéraction")
+
+--         RageUI.Visible(menu, not RageUI.Visible(menu))
+
+--         while RageUI.Visible(menu) or RageUI.Visible(menuShop) do
+--             Citizen.Wait(0)
+--             RageUI.IsVisible(menu, function()
+--                 RageUI.Button("Magasin de Pâques", false, {}, true, {}, menuShop)
+--                 RageUI.Button("Récupérer la récompense de la chasse aux œufs", "Trouvez les 50 œufs cachés dans l'île principale.", {}, true, {
+--                     onSelected = function()
+--                         TriggerServerEvent('egghunt:server:getRewards')
+--                     end
+--                 })
+--             end)
+
+--             RageUI.IsVisible(menuShop, function()
+--                 for k, v in pairs(EventConfig.EggsEvent.shop) do 
+--                     RageUI.Button(v.label, nil, {RightLabel = v.price, RightBadge = RageUI.BadgeStyle.Card}, true, {
+--                         onSelected = function()
+--                             TriggerServerEvent('kayscore:event:easter', k)
+--                         end
+--                     })
+--                 end
+--             end)
+--         end
+--     end
+-- end)

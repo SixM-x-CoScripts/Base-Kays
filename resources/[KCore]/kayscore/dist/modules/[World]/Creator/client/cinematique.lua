@@ -1,0 +1,23 @@
+-- function bateau()
+--     TriggerServerEvent('kayscore:caca:setInstance')
+--     local anim = true
+--     DoScreenFadeOut(1000)
+--     Wait(1500)
+
+--     anim = false
+--     DoScreenFadeOut(1000)
+--     Wait(1000)
+--     DeleteEntity(Boat)
+--     ClearPedSecondaryTask(playerPed)
+--     SetEnableHandcuffs(playerPed, false)
+--     SetPedCanPlayGestureAnims(playerPed,  true)
+--     FreezeEntityPosition(playerPed, false)
+--     DisplayRadar(true)
+--     SetEntityCoords(Player.playerPed, vector3(-163.5556, -303.0282, 39.73339))
+--     SetEntityHeading(Player.playerPed, 330.75811767578)
+--     Wait(1000)
+--     DoScreenFadeIn(1000)
+--     ESX.ShowNotification(('Bienvenue sur 🌴 ~r~%s~s~'):format(GetConvar('ServerName', ' ')))
+
+--     TriggerServerEvent('kayscore:caca:sortInstance')
+-- end

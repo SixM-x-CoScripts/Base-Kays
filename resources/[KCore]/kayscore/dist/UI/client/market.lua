@@ -1,0 +1,26 @@
+-- CreateThread(function()
+--     while not ESXLoaded do Wait(1) end
+--     addItem('market', {
+--         [1] = {
+--             name = 'Eau',
+--             item = 'water',
+--             image = "water.png",
+--             price = 50,
+--             type = "item"
+--         },
+--         [2] = {
+--             name = 'Pain',
+--             item = 'bread',
+--             image = "bread.png",
+--             price = 50,
+--             type = "item"
+--         },
+--         [3] = {
+--             name = 'Téléphone',
+--             item = 'phone',
+--             image = "phone.png",
+--             price = 500,
+--             type = "item"
+--         },
+--     })
+-- end)

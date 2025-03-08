@@ -1,0 +1,248 @@
+-- GAMES = {
+
+--     PARTY_CREATED_SELECTED = nil ,
+
+--     PARTY_CREATED_NAME = nil,
+--     PARTY_CREATED_MY_NAME = nil,
+--     PARTY_CREATED_TIME = nil,
+--     PARTY_CREATED_MAP = nil,
+--     PARTY_CREATED_MAP_LABEL = nil,
+--     PARTY_CREATED_MAX_PLAYERS = nil,
+
+--     MY_PARTY = {
+
+--     },
+--     PARTY_SELECTED = nil,
+--     PARTY = {},
+
+--     INTERIORS = {
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_tarps', enable = false },
+--                 { name = 'mba_basketball', enable = false },
+--                 { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_terrain', enable = false },
+--                 { name = 'mba_derby', enable = false },
+--                 { name = 'mba_ring_of_fire', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = true },
+--                 { name = 'mba_chairs', enable = true },
+--                 { name = 'mba_paintball', enable = true },
+--                 { name = 'mba_jumbotron', enable = true },
+--                 { name = 'mba_tarps', enable = true },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                  { name = 'mba_tribune', enable = false },
+--                  { name = 'mba_tarps', enable = false },
+--                  { name = 'mba_backstage', enable = false },
+--                  { name = 'mba_concert', enable = false },
+--                  { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                  { name = 'mba_tribune', enable = false },
+--                  { name = 'mba_tarps', enable = false },
+--                  { name = 'mba_backstage', enable = false },
+--                  { name = 'mba_fashion', enable = false },
+--                  { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                  { name = 'mba_tribune', enable = false },
+--                  { name = 'mba_tarps', enable = false },
+--                  { name = 'mba_backstage', enable = false },
+--                  { name = 'mba_fameorshame', enable = false },
+--                  { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                  { name = 'mba_tribune', enable = false },
+--                  { name = 'mba_tarps', enable = false },
+--                  { name = 'mba_fighting', enable = false },
+--                  { name = 'mba_wrestling', enable = false },
+--                  { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_tarps', enable = false },
+--                 { name = 'mba_fighting', enable = false },
+--                 { name = 'mba_mma', enable = false },
+--                 { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_tarps', enable = false },
+--                 { name = 'mba_fighting', enable = false },
+--                 { name = 'mba_boxing', enable = false },
+--                 { name = 'mba_jumbotron', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_chairs', enable = false },
+--                 { name = 'mba_curling', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_chairs', enable = false },
+--                 { name = 'mba_rocketleague', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_chairs', enable = false },
+--                 { name = 'mba_field', enable = false },
+--                 { name = 'mba_soccer', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_tribune', enable = false },
+--                 { name = 'mba_chairs', enable = false },
+--                 { name = 'mba_field', enable = false },
+--                 { name = 'mba_hockey', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                  { name = 'mba_cover', enable = false },
+--                  { name = 'mba_gokart_01', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_gokart_02', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_trackmania_01', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_trackmania_02', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_trackmania_03', enable = false },
+--             }
+--         },
+--         {
+--             ipl = 'gabz_mba_milo_',
+--             coords = { x = -324.22030000, y = -1968.49300000, z = 20.60336000 },
+--             entitySets = {
+--                 { name = 'mba_cover', enable = false },
+--                 { name = 'mba_trackmania_04', enable = false },
+--             }
+--         },
+--         {
+--             ipl = false,
+
+--         },
+--     },
+
+--     GAME_LAUNCHED = false,
+
+--     MINI_JEUX = {
+--         ['TOUCHETOUCHE'] = {
+--             active = true,
+--             label = 'Loup Touche Touche',
+--             interiors = {
+--                 {                
+--                     label = 'Arène de couleur (Laser Game)',
+--                     ipl = 'mba_paintball',
+--                     spawn = vector3(-298.479, -1989.496, 21.60348),
+--                 },
+--                 {
+--                     label = 'Map CSGO (DUST 2)',
+--                     ipl = false,
+--                     spawn = vector3(811.5381, 2263.636, 2363.872)
+--                 },
+--             },
+--             informations = {
+--                 title = 'Informations Loup Touche Touche',
+--                 data = {
+--                     {title = 'But du jeu', subtitle = 'Un joueur aléatoire de la partie sera LOUP. Le LOUP doit toucher un autre joueur pour qu\'il devienne à sont tours le LOUP.'},
+--                     {title = 'Remporter la partie', subtitle = 'Pour remporter la partie, à la fin de la partie il faut avoir était le moins de fois LOUP ou alors ne pas être le loup au moment de la fin de la partie.'},
+--                     {title = 'Règles du jeu', subtitle = 'Ne pas s\'éloigner de la ZONE de jeu.'}
+--                 }
+--             },
+--         },
+--         ['INFECTER'] = {
+--             active = false,
+--             label = 'Jeu de l\'infécté',
+--             interiors = {
+
+--             },
+--             informations = {
+--                 title = 'Ce jeu arrive bientôt',
+--                 data = {
+--                 }
+--             },
+--         }
+--     },
+-- }

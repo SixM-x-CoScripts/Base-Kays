@@ -1,0 +1,192 @@
+[
+  {
+    "category": {
+      "name": "hairstyle",
+      "label": "Cheveux",
+      "icon": "fa-thin fa-user-hair",
+      "data": [
+        {
+          "label": "Cheveux 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "hair_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Cheveux 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "hair_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Couleur cheveux 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "hair_color_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        },
+        {
+          "label": "Couleur cheveux 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "hair_color_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        }
+      ]
+    }
+  },
+  {
+    "category": {
+      "name": "hairstyle",
+      "label": "Barbe",
+      "icon": "fa-thin fa-mustache",
+      "data": [
+        {
+          "label": "Type barbe",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "beard_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Taille barbe",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "beard_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Couleur barbe 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "beard_3",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        }
+      ]
+    }
+  },
+  {
+    "category": {
+      "name": "hairstyle",
+      "label": "Sourcils",
+      "icon": "fa-thin fa-eye",
+      "data": [
+        {
+          "label": "Taille sourcils",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "eyebrows_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Type sourcils",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "eyebrows_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Couleur sourcils 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "eyebrows_3",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        },
+        {
+          "label": "Couleur sourcils 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.4,
+          "min": 0,
+          "name": "eyebrows_4",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        }
+      ]
+    }
+  },
+  {
+    "category": {
+      "name": "hair",
+      "label": "Pillositée",
+      "icon": "fa-thin fa-mustache",
+      "data": [
+        {
+          "label": "Pillositée torse",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "chest_1",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Opacité pillositée",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "chest_2",
+          "value": 0,
+          "maxVal": 0,
+          "type": "range",
+          "price": 100
+        },
+        {
+          "label": "Couleur pillositée",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "chest_3",
+          "value": 0,
+          "maxVal": 0,
+          "type": "color",
+          "price": 100
+        }
+      ]
+    }
+  }
+]

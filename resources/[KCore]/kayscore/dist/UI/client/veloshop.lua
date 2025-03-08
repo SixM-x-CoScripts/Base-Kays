@@ -1,0 +1,26 @@
+--  CreateThread(function()
+--      while not ESXLoaded do Wait(1) end
+--      addItem('VeloShop', {
+--          [1] = {
+--              name = 'Bmx',
+--              item = 'bmx',
+--              image = "bmx.png",
+--              price = 3200,
+--              type = "item"
+--          },
+--          [2] = {
+--             name = 'Scorcher',
+--             item = 'scorcher',
+--             image = "scorcher.png",
+--             price = 2800,
+--             type = "item"
+--         },
+--         [3] = {
+--             name = 'Cruiser',
+--             item = 'cruiser',
+--             image = "cruiser.png",
+--             price = 1500,
+--             type = "item"
+--         },
+--      })
+--  end)

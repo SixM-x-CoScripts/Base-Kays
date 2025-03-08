@@ -1,0 +1,624 @@
+local isInHairshop = false
+
+local isCameraActive = false
+local zoomOffset = 0.0
+local heading = 288.49032592773
+local angle2 = 200
+local zoomOffset = 0.6
+local camOffset = 0.65
+
+local clotheSave = {
+    ['tshirt_1'] = "top",
+    ['tshirt_2'] = "top",
+    ['torso_1'] = "top",
+    ['torso_2'] = "top",
+    ['decals_1'] = "top",
+    ['arms'] = "top",
+    ['pants_1'] = "pants",
+    ['pants_2'] = "pants",
+    ['shoes_1'] = "shoes",
+    ['shoes_2'] = "shoes",
+}
+
+local creatorData = {
+    ["tshirt_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["tshirt_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 8, exports.kayscore:GetPlayerSkinData('torso_1') or 1 - 1)
+                end
+            }
+        },
+    },
+    ["tshirt_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["torso_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["torso_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 11, exports.kayscore:GetPlayerSkinData('torso_1') or 1 - 1)
+                end
+            }
+        },
+    },
+    ["torso_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["arms"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["arms_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return 10
+                end
+            }
+        }
+    },
+    ["arms_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["pants_1"] = {
+        zoomOffset = 0.8,
+        camOffset = -0.5,
+        resetValue = {
+            ["pants_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 4, exports.kayscore:GetPlayerSkinData('pants_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["pants_2"] = {
+        zoomOffset = 0.8,
+        camOffset = -0.5,
+    },
+    ["shoes_1"] = {
+        zoomOffset = 0.8,
+        camOffset = -0.9,
+        resetValue = {
+            ["shoes_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 6, exports.kayscore:GetPlayerSkinData('shoes_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["shoes_2"] = {
+        zoomOffset = 0.8,
+        camOffset = -0.9,
+    },
+    ["chain_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["chain_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 7, exports.kayscore:GetPlayerSkinData('chain_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["chain_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["helmet_1"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+        resetValue = {
+            ["helmet_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedPropTextureVariations(PlayerPedId(), 0, exports.kayscore:GetPlayerSkinData('helmet_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["helmet_2"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+    },
+    ["ears_1"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+        resetValue = {
+            ["ears_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedPropTextureVariations(PlayerPedId(), 0, exports.kayscore:GetPlayerSkinData('ears_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["ears_2"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+    },
+    ["glasses_1"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+        resetValue = {
+            ["glasses_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedPropTextureVariations(PlayerPedId(), 1, exports.kayscore:GetPlayerSkinData('glasses_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["glasses_2"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+    },
+    ["watches_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["watches_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedPropTextureVariations(PlayerPedId(), 6, exports.kayscore:GetPlayerSkinData('watches_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["watches_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["bracelets_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["bracelets_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedPropTextureVariations(PlayerPedId(), 7, exports.kayscore:GetPlayerSkinData('bracelets_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["bracelets_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["bags_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["bags_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 5, exports.kayscore:GetPlayerSkinData('bags_1') or 1 - 1)
+                end
+            }
+        }
+    },
+    ["bags_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["mask_1"] = {            
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+        resetValue = {
+            ["mask_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 1, exports.kayscore:GetPlayerSkinData('mask_1') or 1 - 1)
+                end
+            },
+        }
+    },
+    ["mask_2"] = {            
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+    },
+    ["chest_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["chest_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["chest_3"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+    ["hair_1"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+        resetValue = {
+            ["hair_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 2, (exports.kayscore:GetPlayerSkinData('hair_1') or 1 - 1))
+                end
+            },
+        }
+    },
+    ["hair_2"] = {
+        zoomOffset = 0.6,
+        camOffset = 0.65,
+    },
+    ["bproof_1"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+        resetValue = {
+            ["bproof_2"] = {
+                default = 0, 
+                maxValue = function()
+                    return GetNumberOfPedTextureVariations(PlayerPedId(), 11, exports.kayscore:GetPlayerSkinData('bproof_1') or 1 - 1)
+                end
+            }
+        },
+    },
+    ["bproof_2"] = {
+        zoomOffset = 0.75,
+        camOffset = 0.15,
+    },
+}
+
+local function CreateSkinCam()
+	if not DoesCamExist(cam) then
+		cam = CreateCam('DEFAULT_SCRIPTED_CAMERA', true)
+	end
+
+	SetCamActive(cam, true)
+	RenderScriptCams(true, true, 500, true, true)
+
+	isCameraActive = true
+	SetCamRot(cam, 0.0, 0.0, 270.0, true)
+end
+
+local function DeleteSkinCam()
+	isCameraActive = false
+	SetCamActive(cam, false)
+	RenderScriptCams(false, true, 500, true, true)
+	cam = nil
+end
+
+AddEventHandler("ui:hairs:open", function()
+    setInInterface("hairs")
+    isInHairshop = true
+    DisplayRadar(false)
+    SetNuiFocus(true, true)
+
+    local playerPed = PlayerPedId()
+
+    FreezeEntityPosition(playerPed, true)
+    SetPlayerControl(PlayerId(), false, 12)
+    CreateSkinCam(true)
+
+    Citizen.CreateThread(function()
+        while isInHairshop do 
+            local coords = GetEntityCoords(PlayerPedId())
+
+            local angle = heading * math.pi / 180.0
+            local theta = {
+                x = math.cos(angle),
+                y = math.sin(angle)
+            }
+
+            local pos = {
+                x = coords.x + (zoomOffset * theta.x),
+                y = coords.y + (zoomOffset * theta.y)
+            }
+
+            local angleToLook = heading - 140.0
+            if angleToLook > 360 then
+                angleToLook = angleToLook - 360
+            elseif angleToLook < 0 then
+                angleToLook = angleToLook + 360
+            end
+
+            angleToLook = angleToLook * math.pi / 180.0
+            local thetaToLook = {
+                x = math.cos(angleToLook),
+                y = math.sin(angleToLook)
+            }
+
+            local posToLook = {
+                x = coords.x + (zoomOffset * thetaToLook.x),
+                y = coords.y + (zoomOffset * thetaToLook.y)
+            }
+
+            SetCamCoord(cam, pos.x, pos.y, coords.z + camOffset)
+            PointCamAtCoord(cam, posToLook.x, posToLook.y, coords.z + camOffset)
+
+            if IsControlPressed(0, 51) then
+                angle2 = angle2 - 1
+            elseif IsControlPressed(0, 23) then
+                angle2 = angle2 + 1
+            end
+
+            if angle2 > 360 then
+                angle2 = angle2 - 360
+            elseif angle2 < 0 then
+                angle2 = angle2 + 360
+            end
+
+            heading = angle2 + 0.0
+
+            FreezeEntityPosition(PlayerPedId(), true)
+            SetPlayerControl(PlayerId(), false, 12)
+
+            Wait(0)
+        end
+        SetPlayerControl(PlayerId(), true, 12)
+        FreezeEntityPosition(PlayerPedId(), false)
+    end)
+
+    SendNUIMessage({
+        type = "shop:Open",
+        server_logo = "https://i.ibb.co/FqdDjjBh/blanc.png",
+        server_color = "#00237e",
+        data = {
+            type_shop = "hairs",
+            variations = {
+                sex				= 1,
+                face			= 45,
+                skin			= 45,
+                mom				= 45, -- numbers 21-41 and 45 are female (22 total)
+                dad				= 44, -- numbers 0-20 and 42-44 are male (24 total)
+                face_md_weight	= 100,
+                skin_md_weight	= 100,
+                dad_color = 4,
+                mom_color = 4,
+                nose_1			= 10,
+                nose_2			= 10,
+                nose_3			= 10,
+                nose_4			= 10,
+                nose_5			= 10,
+                nose_6			= 10,
+                cheeks_1		= 10,
+                cheeks_2		= 10,
+                cheeks_3		= 10,
+                lip_thickness	= 10,
+                jaw_1			= 10,
+                jaw_2			= 10,
+                chin_1			= 10,
+                chin_2			= 10,
+                chin_3			= 10,
+                chin_4			= 10,
+                neck_thickness	= 10,
+                age_1			= GetNumHeadOverlayValues(3)-1,
+                age_2			= 10,
+                beard_1			= GetNumHeadOverlayValues(1)-1,
+                beard_2			= 10,
+                beard_3			= GetNumHairColors()-1,
+                beard_4			= GetNumHairColors()-1,
+                hair_1			= GetNumberOfPedDrawableVariations(playerPed, 2) - 1,
+                hair_2			= GetNumberOfPedTextureVariations(playerPed, 2, exports.kayscore:GetPlayerSkinData('hair_1') or 1 - 1),
+                hair_color_1	= GetNumHairColors()-1,
+                hair_color_2	= GetNumHairColors()-1,
+                eye_color		= 31,
+                eye_squint		= 10,
+                eyebrows_1		= GetNumHeadOverlayValues(2)-1,
+                eyebrows_2		= 10,
+                eyebrows_3		= GetNumHairColors()-1,
+                eyebrows_4		= GetNumHairColors()-1,
+                eyebrows_5		= 10,
+                eyebrows_6		= 10,
+                makeup_1		= GetNumHeadOverlayValues(4)-1,
+                makeup_2		= 10,
+                makeup_3		= GetNumHairColors()-1,
+                makeup_4		= GetNumHairColors()-1,
+                lipstick_1		= GetNumHeadOverlayValues(8)-1,
+                lipstick_2		= 10,
+                lipstick_3		= GetNumHairColors()-1,
+                lipstick_4		= GetNumHairColors()-1,
+                blemishes_1		= GetNumHeadOverlayValues(0)-1,
+                blemishes_2		= 10,
+                blush_1			= GetNumHeadOverlayValues(5)-1,
+                blush_2			= 10,
+                blush_3			= GetNumHairColors()-1,
+                complexion_1	= GetNumHeadOverlayValues(6)-1,
+                complexion_2	= 10,
+                sun_1			= GetNumHeadOverlayValues(7)-1,
+                sun_2			= 10,
+                moles_1			= GetNumHeadOverlayValues(9)-1,
+                moles_2			= 10,
+                chest_1			= GetNumHeadOverlayValues(10)-1,
+                chest_2			= 10,
+                chest_3			= GetNumHairColors()-1,
+                bodyb_1			= GetNumHeadOverlayValues(11)-1,
+                bodyb_2			= 10,
+                bodyb_3			= GetNumHeadOverlayValues(12)-1,
+                bodyb_4			= 10,
+                ears_1			= GetNumberOfPedPropDrawableVariations(playerPed, 2) - 1,
+                ears_2			= GetNumberOfPedPropTextureVariations(playerPed, 2, exports.kayscore:GetPlayerSkinData('ears_1') or 1 - 1),
+                tshirt_1		= GetNumberOfPedDrawableVariations(playerPed, 8) - 1,
+                tshirt_2		= GetNumberOfPedTextureVariations(playerPed, 8, exports.kayscore:GetPlayerSkinData('tshirt_1') or 1 - 1),
+                torso_1			= GetNumberOfPedDrawableVariations(playerPed, 11) - 1,
+                torso_2			= GetNumberOfPedTextureVariations(playerPed, 11, exports.kayscore:GetPlayerSkinData('torso_1') or 1 - 1),
+                decals_1		= GetNumberOfPedDrawableVariations(playerPed, 10) - 1,
+                decals_2		= GetNumberOfPedTextureVariations(playerPed, 10, exports.kayscore:GetPlayerSkinData('decals_1') or 1 - 1),
+                arms			= GetNumberOfPedDrawableVariations(playerPed, 3) - 1,
+                arms_2			= 10,
+                pants_1			= GetNumberOfPedDrawableVariations(playerPed, 4) - 1,
+                pants_2			= GetNumberOfPedTextureVariations(playerPed, 4, exports.kayscore:GetPlayerSkinData('pants_1') or 1 - 1),
+                shoes_1			= GetNumberOfPedDrawableVariations(playerPed, 6) - 1,
+                shoes_2			= GetNumberOfPedTextureVariations(playerPed, 6, exports.kayscore:GetPlayerSkinData('shoes_1') or 1 - 1),
+                mask_1			= GetNumberOfPedDrawableVariations(playerPed, 1) - 1,
+                mask_2			= GetNumberOfPedTextureVariations(playerPed, 1, exports.kayscore:GetPlayerSkinData('mask_1') or 1 - 1),
+                bproof_1		= GetNumberOfPedDrawableVariations(playerPed, 9) - 1,
+                bproof_2		= GetNumberOfPedTextureVariations(playerPed, 9, exports.kayscore:GetPlayerSkinData('bproof_1') or 1 - 1),
+                chain_1			= GetNumberOfPedDrawableVariations(playerPed, 7) - 1,
+                chain_2			= GetNumberOfPedTextureVariations(playerPed, 7, exports.kayscore:GetPlayerSkinData('chain_1') or 1 - 1),
+                bags_1			= GetNumberOfPedDrawableVariations(playerPed, 5) - 1,
+                bags_2			= GetNumberOfPedTextureVariations(playerPed, 5, exports.kayscore:GetPlayerSkinData('bags_1') or 1 - 1),
+                helmet_1		= GetNumberOfPedPropDrawableVariations(playerPed, 0) - 1,
+                helmet_2		= GetNumberOfPedPropTextureVariations(playerPed, 0, exports.kayscore:GetPlayerSkinData('helmet_1') or 1 - 1),
+                glasses_1		= GetNumberOfPedPropDrawableVariations(playerPed, 1) - 1,
+                glasses_2		= GetNumberOfPedPropTextureVariations(playerPed, 1, exports.kayscore:GetPlayerSkinData('glasses_1') or 1 - 1),
+                watches_1		= GetNumberOfPedPropDrawableVariations(playerPed, 6) - 1,
+                watches_2		= GetNumberOfPedPropTextureVariations(playerPed, 6, exports.kayscore:GetPlayerSkinData('watches_1') or 1 - 1),
+                bracelets_1		= GetNumberOfPedPropDrawableVariations(playerPed, 7) - 1,
+                bracelets_2		= GetNumberOfPedPropTextureVariations(playerPed, 7, exports.kayscore:GetPlayerSkinData('bracelets_1') or 1 - 1)
+            }
+        }
+    })
+end)
+
+RegisterNUICallback("shop:Close", function()
+    if not isInHairshop then return end
+
+    isInHairshop = false
+    DisplayRadar(true)
+    SetNuiFocus(false, false)
+    DeleteSkinCam()
+
+    SendNUIMessage({
+        type = "shop:Close",
+    })
+
+    ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+    TriggerEvent('skinchanger:loadSkin', skin) 
+        TriggerEvent("esx:refreshSkin")
+    end)
+    clearInterface()
+end)
+
+RegisterNUICallback("shop:setHairValue", function(data)
+    if not isInHairshop then return end
+    
+    if creatorData[data.name] then
+        if creatorData[data.name].resetValue then
+            for k,v in pairs(creatorData[data.name].resetValue) do 
+                TriggerEvent("skinchanger:change", k, v.default)
+                
+                SendNUIMessage({
+                    type = "shop:Update",
+                    data = {
+                        component_name = k,
+                        default_value = v.default,
+                    }
+                })
+
+                local maxVal = v.maxValue()
+
+                SendNUIMessage({
+                    type = "shop:Update",
+                    data = {
+                        component_name = k,
+                        maxValue = maxVal,
+                    }
+                })
+            end
+        end
+        
+        zoomOffset = creatorData[data.name].zoomOffset
+        camOffset = creatorData[data.name].camOffset
+    else
+        zoomOffset = 0.6
+        camOffset = 0.65
+    end
+
+    TriggerEvent("skinchanger:change", data.name, tonumber(data.value))
+end)
+
+RegisterNUICallback("shop:rotateCam", function(data)
+    if not isInHairshop then return end
+
+    if data.direction == "right" then
+        angle2 = angle2 - 10
+    else
+        angle2 = angle2 + 10
+    end
+end)
+
+local KeyboardUtils = {isActive = false}
+
+AddEventHandler("kbi:cancel",function() 
+    KeyboardUtils.isActive = false
+end)
+
+function KeyboardUtils.use(title,cb)
+    if not KeyboardUtils.isActive then
+        KeyboardUtils.isActive = true
+        exports.server_ui:use(title,function(data)
+            cb(data)
+            KeyboardUtils.isActive = false
+        end)
+    end
+end
+
+RegisterNUICallback("shop:SaveOutfit", function()
+    if not isInHairshop then return end
+    ESX.TriggerServerCallback("MakeUP:removeMoney", function(isAllow)
+    if isAllow then
+    isInHairshop = false
+    DisplayRadar(true)
+    SetNuiFocus(false, false)
+    DeleteSkinCam()
+
+    SendNUIMessage({
+        type = "shop:Close",
+    })
+
+    ESX.ShowNotification('Tu as payer ~g~50$~w~ en Banque')
+    clearInterface()
+    TriggerEvent("skinchanger:getSkin", function(skin)
+        TriggerServerEvent("esx_skin:save", skin)
+        TriggerEvent("esx:refreshSkin")
+    end)
+    else
+        ESX.ShowNotification("Vous n'avez pas ~r~50$~w~ d'argent en Banque")
+    end
+    end)
+end)
+
+RegisterNUICallback("creator:setDNAValue", function(data)
+    if not isInHairshop then return end
+
+    if creatorData[data.name] then
+        if creatorData[data.name].resetValue then
+            for k,v in pairs(creatorData[data.name].resetValue) do 
+                TriggerEvent("skinchanger:change", k, v.default)
+                
+                SendNUIMessage({
+                    type = "shop:Update",
+                    data = {
+                        component_name = k,
+                        default_value = v.default,
+                    }
+                })
+
+                local maxVal = v.maxValue()
+
+                SendNUIMessage({
+                    type = "shop:Update",
+                    data = {
+                        component_name = k,
+                        maxValue = maxVal,
+                    }
+                })
+            end
+        end
+        
+        zoomOffset = creatorData[data.name].zoomOffset
+        camOffset = creatorData[data.name].camOffset
+    else
+        zoomOffset = 0.6
+        camOffset = 0.65
+    end
+
+    TriggerEvent("skinchanger:change", data.name, tonumber(data.value))
+end)

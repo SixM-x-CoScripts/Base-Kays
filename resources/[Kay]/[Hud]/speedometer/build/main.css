@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.huds {
+    position: absolute;
+    left: 50%;
+    padding: 0;
+    bottom: 0;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 10vh;
+  }
+  
+  .huds .background,
+  .huds .outer {
+    transform: rotate(-180deg);
+    transform-origin: 50% 50%;
+  }
+  
+  .huds .progress {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(140deg);
+    transform-origin: 50% 50%;
+  }
+  
+  .huds .kilometers {
+    text-align: center;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .huds .speedometer {
+    position: relative;
+  }
+  
+  .huds .speedometer .text,
+  .huds .speedometer .circle {
+    position: absolute;
+    bottom: 1vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .huds .speedometer .circle {
+    transform: scale(2.5) translateX(-20%);
+    width: 50px;
+    height: 50px;
+  }
+  
+  .huds .speedometer svg .outer {
+    opacity: 0.3;
+    transform: rotate(180deg) scale(1.2);
+  }
+  
+  .huds .speedometer .text .speed {
+    color: #fff;
+    font-size: 26px;
+  }
+  
+  .huds .speedometer .text .kmh {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  
+  .huds .fuel {
+    position: absolute;
+    right: -50%;
+  }
+  
+  .huds .fuel g {
+    transform: translate(16px, 13px);
+  }

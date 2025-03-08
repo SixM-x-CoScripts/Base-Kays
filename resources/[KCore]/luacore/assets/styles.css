@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Arborcrest-Heavy";
+  src: url("../assets/fonts/Kanit-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GeraldtonBold";
+  src: url("../assets/fonts/Roboto-Bold.ttf") format("opentype");
+}
+
+.container-clause {
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  z-index: 99;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.disclaimer-title {
+  margin-bottom: 20px;
+  color: #c8c8c9;
+  font-size: 10px;
+  font-family: "Arborcrest-Heavy";
+}
+
+.disclaimer-desc {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "GeraldtonBold";
+  max-width: 65%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+}
+
+.progress-container {
+  height: 7px;
+  background-color: rgba(54, 54, 54, 0.506);
+  max-width: 70%;
+  margin: 20px auto;
+  border-radius: 5px; /* Ajout de border-radius */
+  overflow: hidden; /* Pour que les coins arrondis soient visibles */
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #003cff;
+  border-radius: 5px; /* Ajout de border-radius */
+}

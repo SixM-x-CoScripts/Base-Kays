@@ -1,0 +1,406 @@
+{
+  "categories": [
+    {
+      "name": "tshirt",
+      "label": "T-Shirts",
+      "icon": "fa-thin fa-shirt",
+      "data": [
+        {
+          "label": "T-Shirt 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "tshirt_1",
+          "value": 0,
+          "componentId": 8,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "T-Shirt 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "tshirt_2",
+          "value": 0,
+          "textureof": "tshirt_1",
+          "maxVal": 0,
+          "price": 50
+        }
+      ]
+    },
+    {
+      "name": "torso",
+      "label": "Torse",
+      "icon": "fa-thin fa-shirt-long-sleeve",
+      "data": [
+        {
+          "label": "Torse 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "torso_1",
+          "value": 0,
+          "componentId": 11,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Torse 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "torso_2",
+          "value": 0,
+          "textureof": "torso_1",
+          "maxVal": 0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "arms",
+      "label": "Bras",
+      "icon": "fa-thin fa-hands",
+      "data": [
+        {
+          "label": "Bras",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "arms",
+          "value": 0,
+          "price": 100
+        },
+        {
+          "label": "Bras 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "arms_2",
+          "value": 0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "pants",
+      "label": "Pantalons",
+      "icon": "fa-thin fa-clothes-hanger",
+      "data": [
+        {
+          "label": "Pantalon 1",
+          "camOffset": -0.5,
+          "zoomOffset": 0.8,
+          "min": 0,
+          "name": "pants_1",
+          "value": 0,
+          "componentId": 4,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Pantalon 2",
+          "camOffset": -0.5,
+          "zoomOffset": 0.8,
+          "min": 0,
+          "name": "pants_2",
+          "value": 0,
+          "textureof": "pants_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "shoes",
+      "label": "Chaussures",
+      "icon": "fa-thin fa-boot-heeled",
+      "data": [
+        {
+          "label": "Chaussures 1",
+          "camOffset": -0.8,
+          "zoomOffset": 0.8,
+          "min": 0,
+          "name": "shoes_1",
+          "value": 0,
+          "componentId": 6,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Chaussures 2",
+          "camOffset": -0.8,
+          "zoomOffset": 0.8,
+          "min": 0,
+          "name": "shoes_2",
+          "value": 0,
+          "textureof": "shoes_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "chain",
+      "label": "Chaînes",
+      "icon": "fa-thin fa-scarf",
+      "data": [
+        {
+          "label": "Chaîne 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "chain_1",
+          "value": 0,
+          "componentId": 7,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Chaîne 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "chain_2",
+          "value": 0,
+          "textureof": "chain_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "helmet",
+      "label": "Casques",
+      "icon": "fa-thin fa-helmet-battle",
+      "data": [
+        {
+          "label": "Casque 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": -1,
+          "name": "helmet_1",
+          "value": -1,
+          "componentId": 0,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Casque 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "helmet_2",
+          "value": 0,
+          "textureof": "helmet_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "glasses",
+      "label": "Lunettes",
+      "icon": "fa-thin fa-glasses",
+      "data": [
+        {
+          "label": "Lunettes 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "glasses_1",
+          "value": 0,
+          "componentId": 1,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Lunettes 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "glasses_2",
+          "value": 0,
+          "textureof": "glasses_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "watches",
+      "label": "Montres",
+      "icon": "fa-thin fa-watch",
+      "data": [
+        {
+          "label": "Montre 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": -1,
+          "name": "watches_1",
+          "value": -1,
+          "componentId": 6,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Montre 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "watches_2",
+          "value": 0,
+          "textureof": "watches_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "bracelets",
+      "label": "Bracelets",
+      "icon": "fa-thin fa-watch-apple",
+      "data": [
+        {
+          "label": "Bracelet 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": -1,
+          "name": "bracelets_1",
+          "value": -1,
+          "componentId": 7,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Bracelet 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "bracelets_2",
+          "value": 0,
+          "textureof": "bracelets_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "bag",
+      "label": "Sacs",
+      "icon": "fa-thin fa-backpack",
+      "data": [
+        {
+          "label": "Sac 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": -1,
+          "name": "bags_1",
+          "value": -1,
+          "componentId": 5,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Sac 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "bags_2",
+          "value": 0,
+          "textureof": "bags_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "mask",
+      "label": "Masques",
+      "icon": "fa-thin fa-masks-theater",
+      "data": [
+        {
+          "label": "Masque 1",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "mask_1",
+          "value": 0,
+          "componentId": 1,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Masque 2",
+          "camOffset": 0.65,
+          "zoomOffset": 0.6,
+          "min": 0,
+          "name": "mask_2",
+          "value": 0,
+          "textureof": "mask_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "bproof",
+      "label": "Gilets pare-balles",
+      "icon": "fa-thin fa-vest-patches",
+      "data": [
+        {
+          "label": "Gilet pare-balles 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "bproof_1",
+          "value": 0,
+          "componentId": 9,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Gilet pare-balles 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "bproof_2",
+          "value": 0,
+          "textureof": "bproof_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "ears",
+      "label": "Boucles d'oreilles",
+      "icon": "fa-thin fa-ear",
+      "data": [
+        {
+          "label": "Boucles d'oreilles 1",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": -1,
+          "name": "ears_1",
+          "value": -1,
+          "componentId": 2,
+          "maxVal": 0,
+          "price": 100
+        },
+        {
+          "label": "Boucles d'oreilles 2",
+          "camOffset": 0.15,
+          "zoomOffset": 0.75,
+          "min": 0,
+          "name": "ears_2",
+          "value": 0,
+          "textureof": "ears_1",
+          "maxVal":0,
+          "price": 100
+        }
+      ]
+    }
+  ]
+}

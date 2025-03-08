@@ -1,0 +1,60 @@
+.categorys {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	width: 48vw; 
+	height: 0.85vw; 
+}
+
+.first-category-all,
+.sec-category-food,
+.three-category-weapon,
+.four-category-clothes {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75vw; 
+	height: 1.75vw;
+	border: 0.052vw solid var(--border-color);
+	background: var(--background-color);
+	margin-left: 0.5vw; 
+	transform: translateX(-19.7vw); 
+	margin-top: 90px; 
+	transition: all 0.1s ease;
+	cursor: pointer;
+}
+
+.first-category-all img:nth-child(1),
+.sec-category-food img:nth-child(1),
+.three-category-weapon img:nth-child(1),
+.four-category-clothes img:nth-child(1) {
+	width: 0.7vw; 
+	height: 0.7vw; 
+}
+
+.three-category-weapon img:nth-child(1) {
+	width: 0.7vw;
+	height: 0.6vw; 
+}
+
+.four-category-clothes img:nth-child(1) {
+	width: 0.6vw; 
+	height: 0.7vw;
+}
+
+.first-category-all:hover,
+.sec-category-food:hover,
+.three-category-weapon:hover,
+.four-category-clothes:hover {
+	border: 0.052vw solid var(--border-color);
+	background: var(--hover-color);
+}
+
+.first-category-all:active,
+.sec-category-food:active,
+.three-category-weapon:active,
+.four-category-clothes:active {
+	background: var(--active-color);
+}

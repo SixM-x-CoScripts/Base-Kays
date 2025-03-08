@@ -1,0 +1,54 @@
+--Citizen.CreateThread(function()
+--	while ZGEG == nil do Wait(1) end
+--
+--	AddZones("bucheron_chef", {
+--        Position = vector3(-570.0784, 5367.434, 70.21447),
+--        Public = true,
+--        Type = nil,
+--        Job = nil,
+--        Job2 = nil,
+--        Blip = false,
+--        Action = function()
+--			TriggerEvent("openBucheronBossMenu")
+--        end
+--    })
+--end)
+--
+--AddEventHandler("openBucheronBossMenu", function()
+--	local menu = RageUI.CreateMenu('', _("MENU_DESCRIPTION"))
+--
+--    RageUI.Visible(menu, not RageUI.Visible(menu))
+--    
+--    while menu do
+--        Citizen.Wait(0)
+--        RageUI.IsVisible(menu, function()
+--			if not AuTravaillebucheron then
+--				RageUI.Button("Demander à travailler pour les Bûcherons", nil, {}, true, {
+--					onSelected = function()
+--						RageUI.CloseAll()
+--						TriggerServerEvent("jobs_civil:bucheronStart")
+--					end
+--				})
+--			else
+--				RageUI.Button("Arreter de travailler", nil, {}, true, {
+--					onSelected = function()
+--						TriggerServerEvent("jobs_civil:bucheronStop")
+--					end
+--				})
+--			end
+--        end)
+--
+--        if not RageUI.Visible(menu) then
+--            menu = RMenu:DeleteType('menu', true)
+--        end
+--    end
+--end)
+--
+--RegisterNetEvent("jobs_civil:bucheronStart", function()
+--	StartTravaillebucheron()
+--end)
+--
+--RegisterNetEvent("jobs_civil:bucheronStop", function()
+--	AuTravaillebucheron = false
+--	endwork()
+--end)

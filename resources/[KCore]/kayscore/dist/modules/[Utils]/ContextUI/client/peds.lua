@@ -1,0 +1,16 @@
+-- Citizen.CreateThread(function ()
+--     while GetResourceState("ox_target") ~= "started" do Citizen.Wait(0) end
+
+--     exports.ox_target:addGlobalPed({
+--         {
+--             label = 'Test',
+--             icon = "fa-solid fa-car-side",
+--             distance = 5,
+--             canInteract = function()
+--                 return true
+--             end,
+--             onSelect = function(data)
+--             end
+--         },
+--     })
+-- end)

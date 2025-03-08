@@ -1,0 +1,7 @@
+ESX.RegisterUsableItem('oblivionPill', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	TriggerClientEvent('dix-oblivionpill:oblivionPill', source)
+	xPlayer.removeInventoryItem('oblivionPill', 1)
+	Citizen.Wait(50000)
+	TriggerClientEvent('dix-oblivionpill:stopPill', source)
+end)

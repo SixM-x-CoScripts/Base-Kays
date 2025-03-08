@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creator</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./shop.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
+
+    <script src="shop_config.js"></script>
+    <script src="shop.js"></script>
+    <script src="shop_functions.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script>
+
+    <!-- <script>
+        var audioPlayer = null;
+
+        window.addEventListener('message', function (event) {
+            if (event.data.transactionType == "playSound") {
+                // if (audioPlayer != null) {
+                // 	audioPlayer.pause();
+                // }
+
+                audioPlayer = new Howl({
+                    src: ["./sounds/" + event.data.transactionFile + ".ogg"]
+                });
+
+                audioPlayer.volume(event.data.transactionVolume);
+                audioPlayer.play();
+            }
+        });
+    </script> -->
+
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+    <div class="shop">
+        <div class="ui" style="display: none;">
+          <div class="notification"></div>
+          <div class="content">
+            <div class="title-contents"></i> Produits Disponibles</div>
+
+            <input data="shop" type="text" id="search" placeholder="Rechercher un produit...">
+            <div class="products">
+            </div>
+            <div class="basket">
+              <div class="basket-title"><i class="bi bi-basket"></i> Votre Panier</div>
+            </div>
+            <div class="buttons" >
+              <button id="pay">Payer (0$)</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="garage">
+        
+    </div>
+
+    <div id="zCharacterCreator">
+        <div class="main-wrapper">
+            <div class="cloth-inv">
+                <div class="cam-change">
+                    <div id="camhead" class="item-box">
+                        <img class="iconhead" src="./img/iconcamhead.png">
+                    </div>
+                    <div id="camvtm" class="item-box">
+                        <img class="iconhead" src="./img/iconcamvtm.png">
+                    </div>
+                    <div id="campants" class="item-box">
+                        <img class="iconhead" src="./img/iconcampants.png">
+                    </div>
+                </div>
+            </div>
+            <div class="title-area">
+                <img class="icon_box"
+                    src="https://cdn.discordapp.com/attachments/1208075202236391485/1210996507906416660/LOGO_PNG.png?ex=65ff0c62&is=65ec9762&hm=a823d2f7aad0b14e73d902aafe9b2e2b19fe6c6743e9148f55a0dd0a5dcb807c&">
+                <p class="title-1">PERSONNAGE<br> MENU DE CREATION</p>
+            </div>
+            <div class="category-area">
+                <div class="dna">
+                    <img class="dnabox" src="./img/icon3.png">
+                </div>
+                <div class="head">
+                    <img class="headbox" src="./img/icon2.png">
+                </div>
+                <div class="head2">
+                    <img class="head2box" src="./img/icon5.png">
+                </div>
+                <div class="body">
+                    <img class="bodybox" src="./img/icon4.png">
+                </div>
+                <div class="savePerso" onclick="saveFunc()">
+                    <img id="save"><img src="./img/icon6.png">
+                </div>
+            </div>
+
+            <div class="info-wrapper">
+                <div class="infoList">
+                    <!-- <label for="input-type">Bienvenue sur</label> -->
+                    <img src="https://cdn.discordapp.com/attachments/1208075202236391485/1210996507906416660/LOGO_PNG.png?ex=65ff0c62&is=65ec9762&hm=a823d2f7aad0b14e73d902aafe9b2e2b19fe6c6743e9148f55a0dd0a5dcb807c&"
+                        class="input-image" alt="">
+                    <h1>Bienvenue sur Slide RP, votre destination ultime pour le rôleplay sur FiveM !</h1>
+                    <h1>Plongez dans une expérience immersive où chaque choix compte. Explorez une ville dynamique,
+                        engagez-vous avec une communauté passionnée et créez votre propre histoire.</h1>
+                </div>
+            </div>
+
+            <div class="dna-wrapper">
+                <div class="dnaList">
+                    <label for="input-type">Prénom</label>
+                    <input onkeyup="updateName()" type="text" class="input-type" id="character-name" placeholder="John">
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="dnaList">
+                    <label for="input-type">Nom de famille</label>
+                    <input onkeyup="updateLastName()" type="text" class="input-type" id="character-lastname"
+                        placeholder="Doe">
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="dnaList">
+                    <label for="input-type">Sexe</label>
+                    <input onkeyup="updateSexe()" type="text" class="input-type" id="character-sexe" placeholder="m/f">
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="dnaList">
+                    <label for="input-type">Date de naissance</label>
+                    <input onkeyup="getInfo('character-birth','birth')" type="text" class="input-type"
+                        id="character-birth" placeholder="26 / 05 / 1999">
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="dnaList">
+                    <label for="input-type">Lieu de naissance</label>
+                    <input onkeyup="updateLastName()" type="text" class="input-type" id="character-ldn"
+                        placeholder="Los Santos">
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+
+            </div>
+
+            <div class="head-wrapper">
+
+                <div class="head-category">
+                    <label for="input-type">Sexe</label>
+                    <input max="1" onchange="getInfo('character-sex','sex')" type="range" class="input-range-type"
+                        id="character-sex" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_sex" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Visage</label>
+                    <input onchange="getInfo('mom','mom')" type="range" class="input-range-type" id="mom"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_visage" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur de Peau</label>
+                    <input onchange="getInfo('dad','dad')" type="range" class="input-range-type"
+                        id="dad" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_skintone" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Courbure de l'os du nez</label>
+                    <input max="10" onchange="getInfo('character-nosebonecurveness','nosebonecurveness')" type="range"
+                        class="input-range-type" id="character-nosebonecurveness"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_nosebonecurveness" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Hauteur des pomettes</label>
+                    <input max="10" onchange="getInfo('character-cheekboneheight','cheekboneheight')" type="range"
+                        class="input-range-type" id="character-cheekboneheight"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_cheekboneheight" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Largeur des pomettes</label>
+                    <input max="10" onchange="getInfo('character-cheekbonewidth','cheekbonewidth')" type="range"
+                        class="input-range-type" id="character-cheekbonewidth"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_cheekbonewidth" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Largeur des joues</label>
+                    <input max="10" onchange="getInfo('character-cheekwidth','cheekwidth')" type="range"
+                        class="input-range-type" id="character-cheekwidth"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_cheekwidth" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Ouverture des yeux</label>
+                    <input max="10" onchange="getInfo('character-squintingeyes','squintingeyes')" type="range"
+                        class="input-range-type" id="character-squintingeyes"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_squintingeyes" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur des yeux</label>
+                    <input max="32" onchange="getInfo('character-eyecolour','eyecolour')" type="range"
+                        class="input-range-type" id="character-eyecolour"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_eyecolour" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Hauteur du menton</label>
+                    <input max="4" onchange="getInfo('character-chinheight','chinheight')" type="range"
+                        class="input-range-type" id="character-chinheight"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_chinheight" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Longeur du menton</label>
+                    <input max="15" onchange="getInfo('character-chinlength','chinlength')" type="range"
+                        class="input-range-type" id="character-chinlength"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_chinlength" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Largeur du menton</label>
+                    <input max="15" onchange="getInfo('character-chinwidth','chinwidth')" type="range"
+                        class="input-range-type" id="character-chinwidth"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_chinwidth" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Epaisseur des lèvres</label>
+                    <input max="15" onchange="getInfo('character-lipthickness','lipthickness')" type="range"
+                        class="input-range-type" id="character-lipthickness"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output min="-1" id="label_lipthickness" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+
+            </div>
+
+            <div class="head2-wrapper">
+                <div class="head-category">
+                    <label for="input-type">Cheveux</label>
+                    <input max="71" onchange="getInfo('character-hair1','hair1')" type="range" class="input-range-type"
+                        id="character-hair1" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_hair1" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Variations des cheveux</label>
+                    <input max="10" onchange="getInfo('character-hair2','hair2')" type="range" class="input-range-type"
+                        id="character-hair2" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_hair2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur des cheveux</label>
+                    <input onchange="getInfo('character-haircolour','haircolour')" type="range" class="input-range-type"
+                        id="character-haircolour" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_haircolour" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Type de barbe</label>
+                    <input max="29" onchange="getInfo('character-beardtype','beardtype')" type="range"
+                        class="input-range-type" id="character-beardtype"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_beardtype" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Taille de la barbe</label>
+                    <input max="20" onchange="getInfo('character-beardsize','beardsize')" type="range"
+                        class="input-range-type" id="character-beardsize"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_beardsize" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur de la barbe</label>
+                    <input max="63" onchange="getInfo('character-beardcolour','beardcolour')" type="range"
+                        class="input-range-type" id="character-beardcolour"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_beardcolour" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Type de sourcils</label>
+                    <input min="-1" max="33" onchange="getInfo('character-typeeyebrows','typeeyebrows')" type="range"
+                        class="input-range-type" id="character-typeeyebrows"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_typeeyebrows" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Taille des sourcils</label>
+                    <input max="33" onchange="getInfo('character-eyebrowsize','eyebrowsize')" type="range"
+                        class="input-range-type" id="character-eyebrowsize"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_eyebrowsize" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur des sourcils</label>
+                    <input max="64" onchange="getInfo('character-eyebrowcolour','eyebrowcolour')" type="range"
+                        class="input-range-type" id="character-eyebrowcolour"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_eyebrowcolour" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Hauteur des sourcils</label>
+                    <input max="15" onchange="getInfo('character-eyebrowheight','eyebrowheight')" type="range"
+                        class="input-range-type" id="character-eyebrowheight"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_eyebrowheight" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Maquillage</label>
+                    <input min="-1" max="9" onchange="getInfo('character-makeup','makeup')" type="range"
+                        class="input-range-type" id="character-makeup"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_makeup" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur du maquillage</label>
+                    <input max="63" onchange="getInfo('character-makeupcolor','makeupcolor')" type="range"
+                        class="input-range-type" id="character-makeupcolor"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_makeupcolor" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Rouge à lèvres</label>
+                    <input min="-1" max="9" onchange="getInfo('character-lipstick','lipstick')" type="range"
+                        class="input-range-type" id="character-lipstick"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_lipstick" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur du rouge à lèvres</label>
+                    <input max="63" onchange="getInfo('character-lipstickcolor','lipstickcolor')" type="range"
+                        class="input-range-type" id="character-lipstickcolor"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_lipstickcolor" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Tâches de rousseurs</label>
+                    <input min="-1" max="17" onchange="getInfo('character-freckles','freckles')" type="range"
+                        class="input-range-type" id="character-freckles"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_freckles" class="range-value"> </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-t ype">Rougeur</label>
+                    <input min="-1" max="32" onchange="getInfo('character-blush','blush')" type="range"
+                        class="input-range-type" id="character-blush"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_blush" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="head-category">
+                    <label for="input-type">Couleur des rougeurs</label>
+                    <input max="63" onchange="getInfo('character-blushcolor','blushcolor')" type="range"
+                        class="input-range-type" id="character-blushcolor"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_blushcolor" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+            </div>
+
+            <div class="body-wrapper">
+                <div class="body-category">
+                    <label for="input-type">Tshirt</label>
+                    <input max="143" onchange="getInfo('character-top','top')" type="range" class="input-range-type"
+                        id="character-top" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_top" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations tshirt</label>
+                    <input max="20" onchange="getInfo('character-top2','top2')" type="range" class="input-range-type"
+                        id="character-top2" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_top2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Torse</label>
+                    <input onchange="getInfo('character-torso','torso')" type="range" class="input-range-type"
+                        id="character-torso" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_torso" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations torse</label>
+                    <input max="20" onchange="getInfo('character-torso2','torso2')" type="range"
+                        class="input-range-type" id="character-torso2"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_torso2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Gants</label>
+                    <input max="170" onchange="getInfo('character-arms','arms')" type="range" class="input-range-type"
+                        id="character-arms" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_arms" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Pantalon</label>
+                    <input max="114" onchange="getInfo('character-pants','pants')" type="range" class="input-range-type"
+                        id="character-pants" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_pants" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations pantalon</label>
+                    <input max="30" onchange="getInfo('character-pants2','pants2')" type="range"
+                        class="input-range-type" id="character-pants2"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_pants2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Chaussures</label>
+                    <input max="0" , onchange="getInfo('character-shoes','shoes')" type="range" class="input-range-type"
+                        id="character-shoes" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_shoes" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations chaussures</label>
+                    <input max="26" onchange="getInfo('character-shoes2','shoes2')" type="range"
+                        class="input-range-type" id="character-shoes2"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_shoes2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Sac à dos</label>
+                    <input max="80" onchange="getInfo('character-bags','bags')" type="range" class="input-range-type"
+                        id="character-bags" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_bags" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations sac à dos</label>
+                    <input max="25" onchange="getInfo('character-bags2','bags2')" type="range" class="input-range-type"
+                        id="character-bags2" oninput="this.nextElementSibling.value = this.value">
+                    <output id="label_bags2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <!-- <div class="body-category">
+                    <label for="input-type">Masque</label>
+                    <input max = "147" onchange = "getInfo('character-masks','masks')" type="range" class="input-range-type" id="character-masks" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_masks" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations masque</label>
+                    <input max = "10" onchange = "getInfo('character-masks2','masks2')" type="range" class="input-range-type" id="character-masks2" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_masks2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Accessoires</label>
+                    <input min="-1" max = "131" onchange = "getInfo('character-chain','chain')" type="range" class="input-range-type" id="character-chain" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_chain" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations accessoires</label>
+                    <input max = "20" onchange = "getInfo('character-chain2','chain2')" type="range" class="input-range-type" id="character-chain2" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_chain2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Chapeau</label>
+                    <input min="-1" max = "134"onchange = "getInfo('character-hats','hats')" type="range" class="input-range-type" id="character-hats" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_hats" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Oreilleitte</label>
+                    <input max = "40" onchange = "getInfo('character-ear','ear')" type="range" class="input-range-type" id="character-ear" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_ear" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Lunette</label>
+                    <input max = "27" onchange = "getInfo('character-glasses','glasses')" type="range" class="input-range-type" id="character-glasses" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_glasses" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div>
+                <div class="body-category">
+                    <label for="input-type">Variations lunette</label>
+                    <input max = "10" onchange = "getInfo('character-glasses2','glasses2')" type="range" class="input-range-type" id="character-glasses2" oninput="this.nextElementSibling.value = this.value">
+                    <output id = "label_glasses2" class="range-value">0 </output>
+                    <img src="./img/input-image.png" class="input-image" alt="">
+                </div> -->
+
+            </div>
+        </div>
+        <script src="./creator.js"></script>
+    </div>
+</body>
+
+</html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="container">
+        <form>
+            <title class="grey">[ Appuyez sur </title>
+            <title2 class="green">ENTRER</title2>
+            <title3 class="grey">pour jouer. ]</title3>
+            <img class="logo" src="img/logo.png">
+        </form>
+    </div>
+    <script src="./shop.js" type="text/javascript"></script>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

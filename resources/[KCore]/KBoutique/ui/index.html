@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="menuBox" id="menuBox">
+      <div class="topSide">
+        <div class="titleSide">
+          <div class="titleBox">
+            <img src="./img/titlepng.png" alt="" class="titleimg" />
+            <h1>
+              <span id="boutiqueName"></span>
+              <p>BOUTIQUE</p>
+            </h1>
+          </div>
+          <div class="titleLine"></div>
+          <h2 class="titleDiscription">
+            Information
+            <p>Boutique du serveur.</p>
+          </h2>
+        </div>
+        <div class="topRightSide">
+          <div class="statusSide">
+            <div class="statusBox storecode">
+              <div class="statusName">
+                <i class="fa-solid fa-store"></i>CODE BOUTIQUE
+              </div>
+              <span id="storeCode"></span>
+            </div>
+            <div class="statusBox creditsay">
+              <div class="statusName">
+                <i class="fa-solid fa-credit-card"></i>COINS
+              </div>
+              <span id="storeCoins"></span>
+            </div>
+          </div>
+          <!-- <div class="promoBox">
+            Vous avez un code promo ?
+            <div class="promoButton" onclick="useCodePromo()">Utiliser un code promo</div>
+          </div> -->
+        </div>
+      </div>
+      <div class="homePage" style="display: flex" id="homePage">
+        <div class="vehicleBox categorystyle" id="vehicleBoxCat">
+          <h3 class="categoryTitle">
+            VÉHICULES
+            <p>CATÉGORIE</p>
+          </h3>
+          <h4 class="categoryDescription">
+            Information
+            <p>Découvez nos véhicules achetable.</p>
+          </h4>
+          <img
+            src="./img/vehiclecategory.png"
+            alt=""
+            class="categoryimg vehiclecategory"
+          />
+        </div>
+        <div class="homePageCenterBox">
+          <div class="weaponBox categorystyle" id="weaponBoxCat">
+            <h3 class="categoryTitle">
+              ARMES
+              <p>CATÉGORIE</p>
+            </h3>
+            <h4 class="categoryDescription" style="width: 13.2292vw">
+              Information
+              <p>Découvrez nos armes achetable.</p>
+            </h4>
+            <img
+              src="./img/weaponcategory.png"
+              alt=""
+              class="categoryimg weaponimg"
+            />
+          </div>
+          <div class="casesBox categorystyle" id="casezBoxCat">
+            <h3 class="categoryTitle">
+              CAISSES
+              <p>CATÉGORIE</p>
+            </h3>
+            <h4 class="categoryDescription" style="width: 13.2292vw">
+              Information
+              <p>Découvrez nos caisses mystère.</p>
+            </h4>
+            <img
+              src="./img/casecategory.png"
+              alt=""
+              class="categoryimg casesimg"
+            />
+          </div>
+        </div>
+        <div class="homePageRightBox">
+          <div class="moneyBox categorystyle" id="moneyBoxCat">
+            <h3 class="categoryTitle">
+              ARGENT
+              <p>CATÉGORIE</p>
+            </h3>
+            <h4 class="categoryDescription" style="width: 13.2292vw">
+              Information
+              <p>Découvrez nos offres d'argent.</p>
+            </h4>
+            <img
+              src="./img/moneycategory.png"
+              alt=""
+              class="categoryimg moneyimg"
+            />
+          </div>
+          <div class="creditBox categorystyle" id="manageBoxCat">
+            <h3 class="categoryTitle">
+              GESTION
+              <p>CATÉGORIE</p>
+            </h3>
+            <h4 class="categoryDescription" style="width: 13.2292vw">
+              Information
+              <p>Accéder aux options supplémentaires.</p>
+            </h4>
+            <img src="./img/credit.png" alt="" class="categoryimg creditimg" />
+          </div>
+        </div>
+      </div>
+      <div class="productPage" style="display: none" id="VehiclesCatMenu">
+        <div class="productTitleBox" id="closeVehiclesCatMenu">
+          <div class="backBox"><i class="fa-solid fa-angles-left"></i></div>
+          CATÉGORIE VÉHICULES
+        </div>
+        <div class="productList" id="vehicleListData"></div>
+      </div>
+      <div
+        class="vehicleViewPage"
+        style="display: none"
+        id="vehicleViewPage"
+      ></div>
+
+      <div class="productPage" style="display: none" id="WeaponsCatMenu">
+        <div class="productTitleBox" id="closeWeaponsCatMenu">
+          <div class="backBox"><i class="fa-solid fa-angles-left"></i></div>
+          CATÉGORIE ARMES
+        </div>
+        <div class="productList" id="weaponListData"></div>
+      </div>
+
+      <div class="productPage" style="display: none" id="MoneyCatMenu">
+        <div class="productTitleBox" id="closeMoneyCatMenu">
+          <div class="backBox"><i class="fa-solid fa-angles-left"></i></div>
+          CATÉGORIE ARGENT
+        </div>
+        <div class="productList" id="moneyListData"></div>
+      </div>
+
+      <div class="productPage" style="display: none" id="CaseCatMenu">
+        <div class="productTitleBox" id="closeCaseCatMenu">
+          <div class="backBox"><i class="fa-solid fa-angles-left"></i></div>
+          CATÉGORIE CAISSES
+        </div>
+        <div class="productList" id="caseListData"></div>
+      </div>
+
+      <div class="caseOpeningPage" style="display: none" id="caseOpeningPage">
+        <div class="caseOpeningBox">
+          <h4 class="caseOpeningTitle">OUVERTURE CAISSE</h4>
+          <div class="casePrizeList" id="caseGains"></div>
+          <div class="casePrizeList2" id="caseGains2"></div>
+          <img src="./img/caseopening.png" alt="" class="caseOpeningArrow" />
+        </div>
+      </div>
+      <div
+        class="productConfirmationPage"
+        style="display: none"
+        id="productConfirmationPage"
+      >
+        <div class="productConfirmationBox">
+          <h2>
+            ACHAT
+            <p>
+              Êtes-vous sûr de vouloir acheter le produit que vous avez
+              sélectionné ?
+            </p>
+          </h2>
+          <div class="productConfirmationButtonBox">
+            <div
+              class="productConfirmationCancelButton"
+              id="productConfirmationCancelButton"
+            >
+              Annuler
+            </div>
+            <div
+              class="productConfirmationBuyButton"
+              id="productConfirmationBuyButton"
+            >
+              Acheter
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="productConfirmationPage2"
+        style="display: none"
+        id="productConfirmationPage2"
+      >
+        <div class="productConfirmationBox">
+          <h2>
+            ACHAT
+            <p>
+              Êtes-vous sûr de vouloir garder le produit que vous avez gagné ?
+            </p>
+          </h2>
+          <div class="productConfirmationButtonBox">
+            <div
+              class="productConfirmationCancelButton"
+              id="productConfirmationCancelButton2"
+            >
+              <p>Vendre <span id="sellCount"></span> Coins</p>
+            </div>
+            <div
+              class="productConfirmationBuyButton"
+              id="productConfirmationBuyButton2"
+            >
+              Collecter
+            </div>
+          </div>
+        </div>
+
+        <!-- REMBOURSEMENT -->
+
+        <div class="productRemboursementBox">
+          <h2>
+            REMBOURSEMENT
+            <p>
+              Le lot obtenu étant déjà en votre possession, la caisse vous a été
+              remboursée.
+            </p>
+          </h2>
+          <!-- Lot déjà eu -->
+          <div class="productRemboursementButtonBox">
+            <div
+              class="productRemboursementButton"
+              id="productRemboursementButton2"
+            >
+              <p>Rembourser la caisse</p>
+            </div>
+            <div
+              class="productRemboursementBuyButton"
+              id="productRemboursementBuyButton2"
+            >
+              Rembourser la caisse
+            </div>
+          </div>
+          <!-- Lot déjà eu -->
+        </div>
+      </div>
+      <div class="promoCodePage" style="display: none" id="promoPage">
+        <div class="promoCodeBox">
+          <h3 class="promoCodeTitle">
+            CODE PROMO
+            <p>Veuillez rentrer le code de promotion</p>
+          </h3>
+          <div class="container">
+            <div class="input-container">
+              <input
+                type="text"
+                id="promoValue"
+                placeholder="Entrez le code..."
+              />
+            </div>
+          </div>
+          <div class="promoCodeButton" onclick="useCodeButtonPromo()">
+            Utiliser le code
+          </div>
+          <div class="exitBox" onclick="closePromoCode()">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      </div>
+      <div class="creditBuyPage" style="display: none" id="manageMenuCat">
+        <div class="creditBuyBox">
+          <h2 class="creditBuyTitle">
+            COINS
+            <p>Liste des offres</p>
+          </h2>
+          <div class="creditList" id="tebexListData"></div>
+          <!-- <div class="giveCreditBox">
+            <h3 class="giveCreditTitle">
+              DONNER DES COINS
+              <p>
+                Vous pouvez envoyer vos coins à un autre joueur via son code boutique
+              </p>
+            </h3>
+            <div class="giveCreditRightBox">
+              <div class="giveCreditInputBox">
+                <div class="giveCreditInput">
+                  <div class="giveCreditInput-container">
+                    <input type="text" id="inputStoreCode" placeholder="Code boutique..." />
+                  </div>
+                </div>
+                <div class="giveCreditInput">
+                  <div class="giveCreditInput-container">
+                    <input type="text" id="inputAmount" placeholder="Montant..." />
+                  </div>
+                </div>
+              </div>
+              <div class="giveCreditButton" onclick="giveCoins()">Donner</div>
+            </div>
+          </div> -->
+          <div class="exitBox" id="closeManage">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      </div>
+      <div class="exitBox" onclick="closeAll()">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <img src="./img/bgeffect.png" alt="" class="bgeffect" />
+    </div>
+
+    <div id="notify" style="display: none"></div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supérette</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Teko:wght@300..700&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="main">
+        <div class="header">
+          <div class="logo-container">
+            <img
+              src="https://i.ibb.co/FqdDjjBh/blanc.png"
+              alt="Logo"
+              class="header-logo"
+            />
+          </div>
+          <input
+            type="text"
+            placeholder="Rechercher un article"
+            class="search-bar"
+          />
+        </div>
+        <div class="sidebar">
+          <button id="food" class="category-btn" style="display: none">
+            <img
+              src="assets/aaa.png"
+              alt="Nourriture Logo"
+              class="category-logo"
+            />
+            Nourriture
+          </button>
+          <button id="divers" class="category-btn" style="display: none">
+            <img src="assets/aaa.png" alt="Divers Logo" class="category-logo" />
+            Divers
+          </button>
+
+          <button id="armes" class="category-btn" style="display: none">
+            <img src="assets/aaa.png" alt="Armes Logo" class="category-logo" />
+            Armes
+          </button>
+          <button id="munitions" class="category-btn" style="display: none">
+            <img
+              src="assets/aaa.png"
+              alt="Munitions Logo"
+              class="category-logo"
+            />
+            Munitions
+          </button>
+
+          <button id="props" class="category-btn" style="display: none">
+            <img src="assets/aaa.png" alt="Props Logo" class="category-logo" />
+            Props
+          </button>
+
+          <button id="illegalitem" class="category-btn" style="display: none">
+            <img src="assets/aaa.png" alt="Props Logo" class="category-logo" />
+            Outils
+          </button>
+          <button id="exit" class="quit-btn">
+            <!-- <img src="assets/quit.png" alt="Quit Logo" class="quit-logo" /> -->
+            <!-- <i class="bx bxs-arrow-to-left"></i> -->
+            Quitter
+          </button>
+        </div>
+        <div class="items">
+          <button class="item">
+            <img src="assets/bread.png" alt="Pain" />
+            <div class="item-name">
+              <div class="item-price">$10</div>
+              Pain
+            </div>
+          </button>
+          <button class="item">
+            <img src="assets/cola.png" alt="Eau" />
+            <div class="item-name">
+              <div class="item-price">$10</div>
+              Eau
+            </div>
+          </button>
+        </div>
+        <div class="cart">
+          <h3 class="cart-title"><i class="bx bx-basket"></i> Panier :</h3>
+          <div class="cart-item-list">
+            <div class="cart-item">
+              <span>Eau</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn">-</button>
+                <span class="item-quantity">1</span>
+                <button class="quantity-btn">+</button>
+                <span class="cart-item-price">$10</span>
+              </div>
+              <button class="remove-btn"><i class="bx bx-x"></i></button>
+            </div>
+            <div class="cart-item">
+              <span>Pain</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn">-</button>
+                <span class="item-quantity">1</span>
+                <button class="quantity-btn">+</button>
+                <span class="cart-item-price">$10</span>
+              </div>
+              <button class="remove-btn"><i class="bx bx-x"></i></button>
+            </div>
+            <div class="cart-item">
+              <span>Telephone</span>
+              <div class="quantity-controls">
+                <button class="quantity-btn">-</button>
+                <span class="item-quantity">1</span>
+                <button class="quantity-btn">+</button>
+                <span class="cart-item-price">$10</span>
+              </div>
+              <button class="remove-btn"><i class="bx bx-x"></i></button>
+            </div>
+          </div>
+          <div class="total">
+            <span
+              ><strong>Total :</strong>
+              <span class="total-price">$30</span></span
+            >
+          </div>
+
+          <button id="totalid" class="checkout-btn">
+            <!-- <img src="assets/wallet.png" alt="Checkout Logo" /> -->
+            <div class="checkout-div">
+              <!-- <i class="bx bx-wallet"></i> -->
+              <strong class="checkout-text">Payer</strong>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

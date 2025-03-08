@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+    
+        #smallPlayer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 1920px;
+            height: 1080px;
+            display: none;
+            overflow: hidden;
+            transform: scale(0.3);
+            transform-origin: bottom right;
+            pointer-events: none !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+        }
+    
+        #largePlayer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            width: 1920px;
+            height: 1080px;
+            display: none;
+            overflow: hidden;
+            pointer-events: none !important;
+            z-index: 9999;
+        }
+    
+        .video-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            pointer-events: none !important;
+            margin-top: -60px;
+        }
+    
+        .video-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+            pointer-events: none !important;
+            margin-top: -60px;
+            clip-path: inset(60px 0 0 0);
+        }
+    
+        * {
+            pointer-events: none !important;
+        }
+    
+        .ytp-chrome-top,
+        .ytp-title,
+        .ytp-chrome-controls,
+        .ytp-gradient-top,
+        .ytp-gradient-bottom {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+    </style>         
+</head>
+<body>
+    <div id="smallPlayer">
+        <div class="video-container"></div>
+    </div>
+    <div id="largePlayer">
+        <div class="video-container"></div>
+    </div>
+
+    <script>
+        let currentSmallPlayer = null;
+        let currentLargePlayer = null;
+
+        function createYouTubeEmbed(videoId, isSmall) {
+            const params = new URLSearchParams({
+                autoplay: 1,
+                controls: 0,
+                disablekb: 1,
+                fs: 0,
+                modestbranding: 1,
+                rel: 0,
+                showinfo: 0,
+                iv_load_policy: 3,
+                enablejsapi: 1,
+                playsinline: 1,
+                mute: 0,
+                version: 3,
+                html5: 1,
+                cc_load_policy: 0,
+                start: 0,
+                origin: window.location.origin,
+                vq: 'hd1080',
+                hd: 1,
+                quality: 'hd1080'
+            });
+
+            return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        }
+
+        function loadVideo(containerId, videoId, isSmall) {
+            const container = document.getElementById(containerId);
+            const videoContainer = container.querySelector('.video-container');
+            
+            videoContainer.innerHTML = `
+                <iframe 
+                    class="video-iframe" 
+                    src="${createYouTubeEmbed(videoId, isSmall)}" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                ></iframe>
+            `;
+            
+            container.style.display = 'block';
+        }
+
+        window.addEventListener('message', function(event) {
+            const data = event.data;
+
+            switch(data.type) {
+                case "playSmall":
+                    if (currentSmallPlayer) {
+                        document.getElementById('smallPlayer').style.display = 'none';
+                        document.querySelector('#smallPlayer .video-container').innerHTML = '';
+                    }
+                    loadVideo('smallPlayer', data.videoId, true);
+                    currentSmallPlayer = data.videoId;
+                    break;
+
+                case "playLarge":
+                    if (currentLargePlayer) {
+                        document.getElementById('largePlayer').style.display = 'none';
+                        document.querySelector('#largePlayer .video-container').innerHTML = '';
+                    }
+                    loadVideo('largePlayer', data.videoId, false);
+                    currentLargePlayer = data.videoId;
+                    break;
+
+                case "destroyAll":
+                    document.getElementById('smallPlayer').style.display = 'none';
+                    document.getElementById('largePlayer').style.display = 'none';
+                    document.querySelector('#smallPlayer .video-container').innerHTML = '';
+                    document.querySelector('#largePlayer .video-container').innerHTML = '';
+                    currentSmallPlayer = null;
+                    currentLargePlayer = null;
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

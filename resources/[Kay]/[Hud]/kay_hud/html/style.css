@@ -1,0 +1,202 @@
+#heal {
+    position: absolute;
+    left: 0.6%;
+    top: 95.0%;
+    margin: 1.12%;
+    margin-left: 1.0%;
+    width: 3%;
+    height: 1%;
+    padding: 0px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    /*border-color: black;*/
+    float: left;
+    background-color: #696969;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+#armour {
+    position: absolute;
+    left: 3.6%;
+    top: 95.0%;
+    margin: 1.12%;
+    margin-left: 1.0%;
+    width: 3%;
+    height: 1%;
+    padding: 0px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    /*border-color: black;*/
+    float: left;
+    background-color: #696969;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+#food {
+    position: absolute;
+    left: 5.4%;
+    top: 95.0%;
+    margin: 1.12%;
+    margin-left: 2.0%;
+    width: 4%;
+    height: 1%;
+    padding: 0px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    /*border-color: black;*/
+    float: left;
+    background-color: #696969;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+#thirst {
+    position: absolute;
+    left: 9.5%;
+    top: 95.0%;
+    margin: 1.12%;
+    margin-left: 2.0%;
+    width: 4%;
+    height: 1%;
+    padding: 0px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    /*border-color: black;*/
+    float: left;
+    background-color: #696969;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+#drunk {
+    position: absolute;
+    left: 14.0%;
+    top: 83.0%;
+    margin: 1.12%;
+    margin-left: 2.0%;
+    width: 6%;
+    height: 1%;
+    padding: 0px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    /*border-color: black;*/
+    float: left;
+    background-color: #696969;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+/*border-color: black;*/
+/*float:left;
+        background-color:#696969;
+        opacity: 1;
+        border: 1px solid rgba(0, 0, 0, 0.3) !important;					
+    }*/
+
+#box,
+#boxArmour,
+#boxFood,
+#boxThirst,
+#boxDrunk {
+    
+    background: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+#box {
+    background: #538d52;
+    /* Old browsers */
+    /*background: -moz-linear-gradient(45deg, #25872c 0%, #40ce40 11%, #4bea55 24%, #4cef57 27%, #39bf39 42%, #62c99c 50%, #3ac172 51%, #40d17c 59%, #4bed6e 71%, #4df27c 71%, #39bf85 84%, #268935 100%);
+    background: -webkit-linear-gradient(45deg, #25872c 0%, #40ce40 11%, #4bea55 24%, #4cef57 27%, #39bf39 42%, #62c99c 50%, #3ac172 51%, #40d17c 59%, #4bed6e 71%, #4df27c 71%, #39bf85 84%, #268935 100%);
+    background: linear-gradient(45deg, #25872c 0%, #40ce40 11%, #4bea55 24%, #4cef57 27%, #39bf39 42%, #62c99c 50%, #3ac172 51%, #40d17c 59%, #4bed6e 71%, #4df27c 71%, #39bf85 84%, #268935 100%);*/
+}
+
+#boxArmour {
+    background: #3e78b1;
+    /* Old browsers */
+    /*background: -moz-linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);
+    background: -webkit-linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);
+    background: linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);*/
+}
+
+#boxThirst {
+    /*background: #1085a3;*/
+    background: #3489e8;
+    /* Old browsers 
+    background: -moz-linear-gradient(45deg, #26558b 0%, #419ad6 11%, #4bb8f0 24%, #4bb8f0 27%, #3a8bc2 42%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);
+    background: -webkit-linear-gradient(45deg, #26558b 0%, #419ad6 11%, #4bb8f0 24%, #4bb8f0 27%, #3a8bc2 42%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);
+    background: linear-gradient(45deg, #26558b 0%, #419ad6 11%, #4bb8f0 24%, #4bb8f0 27%, #3a8bc2 42%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);*/
+}
+
+#boxFood {
+    background: #cd8314;
+    /* Old browsers */
+    /*background: -moz-linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);
+    background: -webkit-linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);
+    background: linear-gradient(45deg, #894c26 0%, #cc7641 11%, #ea744d 24%, #eda14b 27%, #bf8039 42%, #cc9b63 50%, #c1833c 51%, #ce8c40 59%, #ea884b 71%, #ea954b 72%, #bc7638 84%, #8c5d27 100%);*/
+}
+
+#boxDrunk {
+    background: #074ccca9;
+}
+
+
+
+#emojiPos {
+    position: relative;
+    left: 0.0%;
+    top: -350%;
+}
+
+
+#emojiPos {
+    position: relative;
+    left: -43%;
+    top: -300%;
+    font-size: 13px;
+}
+
+#alive {
+    position: absolute;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    left: 27%;
+    top: 60.7%;
+    width: 8.4%;
+}
+
+body {
+    overflow: hidden;
+}
+
+#heal {
+    background-color: #538d5267 !important;
+}
+
+#armour {
+    background-color: #3e78b17f !important;
+}
+
+#food {
+    background-color: #cd831444 !important;
+}
+
+#thirst {
+    background-color: #2b65a77e !important;
+}
+
+#drunk {
+    background-color: rgba(0, 0, 0, 0.212) !important;
+}
+
+#diving {
+    background-color: rgba(0, 0, 0, 0.212) !important;
+}

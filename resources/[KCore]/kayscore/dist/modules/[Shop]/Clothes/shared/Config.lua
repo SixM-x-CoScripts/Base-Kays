@@ -1,0 +1,160 @@
+-- Config.Clothes = {
+--     priceWithoutSave = 10,
+--     priceWithSave = 15,
+--     clotheSave = {
+--         ['tshirt_1'] = true,
+--         ['tshirt_2'] = true,
+--         ['torso_1'] = true,
+--         ['torso_2'] = true,
+--         ['bproof_1'] = true,
+--         ['bproof_2'] = true,
+--         ['decals_1'] = true,
+--         ['arms'] = true,
+--         ['pants_1'] = true,
+--         ['pants_2'] = true,
+--         ['shoes_1'] = true,
+--         ['shoes_2'] = true,
+--     },
+--     maxSaved = {
+--         [0] = 5,
+--         [1] = 10, -- GOLD 
+--         [2] = 20, -- PLATINIUM
+--         [3] = 40,  -- DIAMOND
+--     },
+-- }
+
+-- function Config.Clothes.loadData()
+--     local data = {}
+--     table.insert(data, {
+--         label = 'T-Shirt', 
+--         type = 'haut',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 8) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'tshirt_1',
+--         index = exports.slide:GetPlayerSkinData('tshirt_1') or 1,
+--         index2 = 2,
+--         indexName = 'tshirt_2',
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+--     table.insert(data, {
+--         label = 'Couleur T-Shirt', 
+--         type = 'haut',
+--         valeur = function() 
+--             return (GetNumberOfPedTextureVariations(Player.playerPed, 8, data[1].index) - 1 == 0 and 1 or GetNumberOfPedTextureVariations(Player.playerPed, 8, data[1].index) - 1)
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'tshirt_2',
+--         index = exports.slide:GetPlayerSkinData('tshirt_2') or 1,
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+--     table.insert(data, {
+--         label = 'Torse', 
+--         type = 'haut',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 11) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'torso_1',
+--         index = exports.slide:GetPlayerSkinData('torso_1') or 1,
+--         index2 = 4,
+--         indexName = 'torso_2',
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+--     table.insert(data, {
+--         label = 'Couleur Torse', 
+--         type = 'haut',
+--         valeur = function() 
+--             return (GetNumberOfPedTextureVariations(Player.playerPed, 11, data[3].index) - 1 == 0 and 1 or GetNumberOfPedTextureVariations(Player.playerPed, 11, data[3].index) - 1)
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'torso_2',
+--         index = exports.slide:GetPlayerSkinData('torso_2') or 1,
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+--     table.insert(data, {
+--         label = 'Bras', 
+--         type = 'haut',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 3) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'arms',
+--         index = exports.slide:GetPlayerSkinData('arms') or 1,
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+--     -- BAS
+--     table.insert(data, {
+--         label = 'Pantalon', 
+--         type = 'bas',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 4) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'pants_1',
+--         index = exports.slide:GetPlayerSkinData('pants_1') or 1,
+--         index2 = 7,
+--         indexName = 'pants_2',
+--         zoomOffset = 0.8,
+--         camOffset = -0.5,
+--     })
+--     table.insert(data, {
+--         label = 'Couleur Pantalon', 
+--         type = 'bas',
+--         valeur = function() 
+--             return (GetNumberOfPedTextureVariations(Player.playerPed, 4, data[6].index) - 1 == 0 and 1 or GetNumberOfPedTextureVariations(Player.playerPed, 4, data[6].index) - 1)
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'pants_2',
+--         index = exports.slide:GetPlayerSkinData('pants_2') or 1,
+--         zoomOffset = 0.8,
+--         camOffset = -0.5,
+--     })
+--     table.insert(data, {
+--         label = 'Chaussure', 
+--         type = 'bas',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 6) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'shoes_1',
+--         index = exports.slide:GetPlayerSkinData('shoes_1') or 1,
+--         index2 = 9,
+--         indexName = 'shoes_2',
+--         zoomOffset = 0.8,
+--         camOffset = -0.8,
+--     })
+--     table.insert(data, {
+--         label = 'Couleur Chaussure', 
+--         type = 'bas',
+--         valeur = function() 
+--             return (GetNumberOfPedTextureVariations(Player.playerPed, 6, data[8].index) - 1 == 0 and 1 or GetNumberOfPedTextureVariations(Player.playerPed, 6, data[8].index) - 1)
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'shoes_2',
+--         index = (exports.slide:GetPlayerSkinData('shoes_2') == 0 and 1 or exports.slide:GetPlayerSkinData('shoes_2') == nil and 1 or exports.slide:GetPlayerSkinData('shoes_2')),
+--         zoomOffset = 0.8,
+--         camOffset = -0.8,
+--     })
+--     --CALQUES
+--     table.insert(data, {
+--         label = 'Calque', 
+--         type = 'haut',
+--         valeur = function() 
+--             return GetNumberOfPedDrawableVariations(Player.playerPed, 10) - 1
+--         end,
+--         indexList = {}, 
+--         skinchanger = 'decals_1',
+--         index = exports.slide:GetPlayerSkinData('decals_1') or 1,
+--         zoomOffset = 0.75,
+--         camOffset = 0.15,
+--     })
+
+--     return data
+-- end

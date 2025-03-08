@@ -1,0 +1,10 @@
+.info {
+  position: absolute;
+  color: #ffffff;
+  top: 0.140rem;
+  right: 0.4rem;
+  font-size: 0.7em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  text-align: right;
+}

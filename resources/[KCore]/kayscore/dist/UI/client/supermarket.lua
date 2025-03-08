@@ -1,0 +1,47 @@
+-- CreateThread(function()
+--     while not ESXLoaded do Wait(1) end
+--     addItem('supermarket', {
+--         [1] = {
+--             name = 'Jumelles',
+--             item = 'jumelles',
+--             image = "binoculars.png",
+--             price = 200,
+--             type = "item"
+--         },
+--         [2] = {
+--             name = 'Pillule d\'oublie',
+--             item = 'oblivionPill',
+--             image = "bonbons.png",
+--             price = 350,
+--             type = "item"
+--         },
+--         [3] = {
+--             name = 'Fil de fer',
+--             item = 'wire',
+--             image = "wire.png",
+--             price = 250,
+--             type = "item"
+--         },
+--         [4] = {
+--             name = 'Poste à souder',
+--             item = 'soudeuse',
+--             image = "caisse.png",
+--             price = 2400,
+--             type = "item"
+--         },
+--         [5] = {
+--             name = 'Ciseaux',
+--             item = 'ciseaux',
+--             image = "ciseaux.png",
+--             price = 250,
+--             type = "item"
+--         },
+--         [6] = {
+--             name = 'Nitro',
+--             item = 'nitrovehicle',
+--             image = "nitrovehicle.png",
+--             price = 1300,
+--             type = "item"
+--         },
+--     })
+-- end)

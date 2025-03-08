@@ -1,0 +1,1747 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "AkrobatBlack";
+  src: url(./font/Akrobat-Black.otf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AkrobatBold";
+  src: url(./font/Akrobat-Bold.otf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AkrobatSBold";
+  src: url(./font/Akrobat-SemiBold.otf);
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+.menuBox {
+  position: relative;
+  gap: 2.7083vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 2.5vw;
+  width: 77.0833vw;
+  background: radial-gradient(
+        13.14% 23.72% at 100% 0%,
+        rgba(0, 68, 255, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        39.21% 39.21% at 2.09% 0%,
+        rgba(0, 68, 255, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+      67.13% 67.13% at 50% 50%,
+      rgba(21, 21, 21, 0.95) 0%,
+      #090909 100%
+    );
+  border-radius: 0.9375vw;
+  height: 75.6%;
+}
+
+.bgeffect {
+  width: 77.0833vw;
+  height: 42.7083vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.topSide {
+  padding-right: 1.5625vw;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+
+.titleimg {
+  width: 4.7396vw;
+  height: 3.75vw;
+  background-size: cover;
+}
+
+.titleBox {
+  align-items: center;
+  display: flex;
+  gap: 0.8854vw;
+}
+
+.titleBox h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2083vw;
+  font-family: "AkrobatBlack";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 2.0833vw;
+  line-height: 90%;
+  color: #0c34e6;
+}
+
+.titleBox h1 p {
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4583vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.titleSide {
+  gap: 2.3958vw;
+  align-items: center;
+  display: flex;
+}
+
+.titleLine {
+  width: 0.0521vw;
+  height: 3.0208vw;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.titleDiscription {
+  width: 20.9896vw;
+  display: flex;
+  gap: 0.1563vw;
+  flex-direction: column;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.0417vw;
+  line-height: 109.5%;
+  color: #ffffff;
+}
+
+.titleDiscription p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0417vw;
+  line-height: 109.5%;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.topRightSide {
+  display: flex;
+  gap: 2.6042vw;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.statusSide {
+  width: 8.0729vw;
+  display: flex;
+  gap: 0.4167vw;
+  flex-direction: column;
+}
+
+.statusBox {
+  align-items: center;
+  padding-left: 0.4167vw;
+  padding-right: 0.4167vw;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 1.3542vw;
+  border-radius: 0.4688vw;
+}
+
+.storecode {
+  border: 0.0521vw solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.8333vw;
+  line-height: 109.5%;
+  text-align: right;
+  color: #ffffff;
+}
+
+.storecode .statusName {
+  align-items: center;
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.7292vw;
+  line-height: 109.5%;
+  color: rgba(255, 255, 255, 0.6);
+  gap: 0.2604vw;
+  display: flex;
+}
+
+.storecode .statusName i {
+  font-size: 0.6vw;
+  color: #ffffff;
+}
+
+.creditsay {
+  background: rgba(0, 102, 255, 0.08);
+  border: 0.0521vw solid rgba(0, 110, 255, 0.4);
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.8333vw;
+  line-height: 109.5%;
+  text-align: right;
+  color: #053174;
+}
+
+.creditsay .statusName {
+  align-items: center;
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 109.5%;
+  color: rgba(255, 255, 255, 0.6);
+  gap: 0.2604vw;
+  display: flex;
+}
+
+.creditsay .statusName i {
+  font-size: 0.6vw;
+  color: #052374;
+}
+
+.promoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3646vw;
+  align-items: center;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8333vw;
+  line-height: 109.5%;
+  color: #ffffff;
+}
+
+.promoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.9896vw;
+  height: 1.5104vw;
+  border: 0.0521vw solid #053574;
+  border-radius: 1.1458vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7813vw;
+  line-height: 109.5%;
+  color: #470574;
+  transition: 300ms;
+}
+
+.promoButton:hover {
+  cursor: pointer;
+  color: black;
+  background: #053174;
+  font-weight: 600;
+}
+
+.homePage {
+  display: flex;
+  gap: 0.7292vw;
+  height: 82.75%;
+}
+
+.vehicleBox {
+  gap: 2.0833vw;
+  display: flex;
+  flex-direction: column;
+  width: 18.1771vw;
+  height: 100%;
+}
+
+.categorystyle {
+  overflow: hidden;
+  padding: 1.6667vw;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.1042vw solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.7813vw;
+  transition: 300ms ease;
+  z-index: 1;
+}
+
+.categoryimg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  transition: 300ms;
+}
+
+.categorystyle:hover .categoryimg {
+  transform: scale(1.1);
+}
+
+.categorystyle:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.1042vw solid rgba(255, 255, 255, 0.3);
+}
+
+.vehiclecategory {
+  width: 17.2917vw;
+  height: 13.3333vw;
+}
+
+.categoryTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125vw;
+  font-family: "AkrobatBlack";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 2.1246vw;
+  line-height: 90%;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.categoryTitle p {
+  font-family: "AkrobatSBold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.3542vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.categoryDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.0417vw;
+  line-height: 121.5%;
+  color: #ffffff;
+}
+
+.categoryDescription p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0417vw;
+  line-height: 121.5%;
+  color: rgba(255, 255, 255, 0.63);
+}
+
+.homePageCenterBox {
+  height: 100%;
+  width: 28.6458vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7292vw;
+}
+
+.weaponBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 44%;
+}
+
+.weaponimg {
+  width: 16.7708vw;
+  height: 9.2188vw;
+}
+
+.casesBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 56%;
+}
+
+.casesimg {
+  width: 12.1875vw;
+  height: 9.6875vw;
+}
+
+.homePageRightBox {
+  width: 23.5938vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7292vw;
+}
+
+.moneyBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 44%;
+}
+
+.moneyimg {
+  width: 10.9063vw;
+  height: 8.6458vw;
+}
+
+.creditBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 56%;
+}
+
+.creditimg {
+  width: 9.7396vw;
+  height: 10.9375vw;
+}
+
+.productPage {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25vw;
+  height: 82.75%;
+}
+
+.productTitleBox:hover {
+  cursor: pointer;
+  transform: translateX(-0.7813vw);
+}
+
+.productTitleBox {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.8333vw;
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3542vw;
+  line-height: 90%;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.backBox {
+  width: 1.4583vw;
+  height: 1.4583vw;
+  background: radial-gradient(
+    75% 75% at 50% 50%,
+    rgba(13, 54, 131, 0.58) 0%,
+    rgba(10, 65, 138, 0.81) 100%
+  );
+  border-radius: 0.5208vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backBox i {
+  font-size: 0.75vw;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.productList {
+  scroll-behavior: smooth;
+  gap: 1vw;
+  row-gap: 1vw;
+  width: 101%;
+  height: 91%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.productBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1979vw;
+  width: 13.5938vw;
+  height: 13.6458vw;
+  min-height: 13.6458vw;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.1042vw solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.8854vw;
+}
+
+.productName {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2604vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9297vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.productName p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7438vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.productimg {
+  width: 100%;
+  height: 4.5vw;
+  object-fit: contain;
+  object-position: center;
+}
+
+.productButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1.7708vw;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.625vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.3);
+  transition: 300ms;
+}
+
+.productButton:hover {
+  cursor: pointer;
+  background: rgb(80, 13, 119);
+  color: black;
+}
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  gap: 0.3646vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7407vw;
+  line-height: 90%;
+  color: #123577;
+}
+
+.productPrice i {
+  font-size: 0.7vw;
+  color: #0f4e81;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.1542vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.2291666666666666vw;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.29);
+  border-radius: 0.7291666666666666vw;
+}
+
+.vehicleViewPage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicleViewBox {
+  position: relative;
+  display: flex;
+  gap: 7.8125vw;
+  padding: 2.1875vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(0, 0, 0, 0.97) 0%,
+    #000000 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+}
+
+.vehicleViewName {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4167vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5396vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.vehicleViewName p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2317vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vehicleViewLeftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125vw;
+}
+
+.vehicleViewImg {
+  width: 14.9479vw;
+  height: 7.2474vw;
+  object-fit: contain;
+}
+
+.vehicleViewPriceBox {
+  display: flex;
+  gap: 0.7813vw;
+  flex-direction: column;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0417vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.493);
+}
+
+.vehicleViewPriceBox div i {
+  font-size: 1.5vw;
+  color: #052c74;
+}
+
+.vehicleViewPriceBox div {
+  display: flex;
+  gap: 0.625vw;
+  align-items: center;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6391vw;
+  line-height: 90%;
+  color: #0e378f;
+}
+
+.vehicleViewRightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 1.5021vw;
+}
+
+.vehicleInformationBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2.1875vw;
+}
+
+.vehicleInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4688vw;
+}
+
+.vehicleInfoLine {
+  width: 16.4583vw;
+  height: 0.5208vw;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1.7708vw;
+}
+
+.vehicleInfoLines {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(270deg, #006eff 0%, rgba(255, 199, 0, 0) 100%);
+  border-radius: 1.7708vw;
+}
+
+.vehicleInfoTitle {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.0417vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.vehicleInfoTitle p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.1458vw;
+  height: 1.1458vw;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 0.2604vw;
+  transition: 200ms;
+}
+
+.checkbox-text {
+  margin-right: 1.6667vw;
+  line-height: 1.25vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8333vw;
+  color: #ffffff;
+}
+
+.checkbox-input:checked ~ .checkbox-label {
+  background: rgba(0, 119, 255, 0.38);
+}
+
+.checkbox-input:checked ~ .checkbox-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5208vw;
+  height: 0.5208vw;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.checkbox-label::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-input:checked ~ .checkbox-label::after {
+  display: block;
+}
+
+.vehicleViewButtonBox {
+  display: flex;
+  gap: 0.5729vw;
+}
+
+.testButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.6354vw;
+  height: 1.9792vw;
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 0.7813vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.47);
+  transition: 300ms;
+}
+
+.testButton:hover {
+  cursor: pointer;
+  background: #00b3ff;
+  color: black;
+}
+
+.vehicleBuyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.5729vw;
+  height: 1.9792vw;
+
+  background: #053574;
+  border-radius: 0.7813vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms1;
+}
+
+.vehicleBuyButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2.5vw rgba(4, 45, 122, 0.39);
+}
+
+.exitBox {
+  z-index: 1;
+  position: absolute;
+  right: 1.5625vw;
+  top: 1.5625vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4583vw;
+  height: 1.4583vw;
+  background: radial-gradient(
+    75% 75% at 50% 50%,
+    rgba(198, 58, 58, 0.58) 0%,
+    rgba(198, 58, 58, 0.81) 100%
+  );
+  border-radius: 0.5208vw;
+  transition: 300ms;
+}
+
+.exitBox i {
+  font-size: 0.8vw;
+  color: rgba(255, 255, 255, 0.53);
+  transition: 300ms;
+}
+
+.exitBox:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.exitBox:hover i {
+  color: white;
+}
+
+.caseViewPage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caseViewBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5193vw;
+  padding: 2.1875vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+}
+
+.caseViewTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4167vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5396vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.caseViewTitle p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2317vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.caseViewTopRightBox {
+  flex-direction: column;
+  display: flex;
+  gap: 2.7604vw;
+}
+
+.caseViewTopSide {
+  display: flex;
+  gap: 7.8125vw;
+}
+
+.caseViewImg {
+  width: 12.5521vw;
+  height: 8.3854vw;
+  object-fit: contain;
+}
+
+.caseViewTopLeftBox {
+  padding-top: 2.0833vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.caseViewPrice {
+  text-align: right;
+  display: flex;
+  gap: 0.7813vw;
+  flex-direction: column;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0417vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.caseViewPrice div {
+  align-items: center;
+  display: flex;
+  gap: 0.625vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6391vw;
+  line-height: 90%;
+  color: #0b3075;
+}
+
+.caseViewPrice div i {
+  font-size: 1.8vw;
+}
+
+.caseViewButtonBox {
+  display: flex;
+  gap: 0.625vw;
+}
+
+.caseBuyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25.9688vw;
+  height: 1.9792vw;
+  background: #052c74;
+  border-radius: 0.7813vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms;
+}
+
+.caseFastButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12.3958vw;
+  height: 1.9792vw;
+  background: #052374;
+  border-radius: 0.7813vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms;
+}
+
+.caseFastButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2.6563vw rgba(4, 45, 122, 0.53);
+}
+
+.caseBuyButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2.6563vw rgba(7, 50, 129, 0.49);
+}
+
+.caseOpeningPage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caseOpeningBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.4583vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+  padding-left: 2.1875vw;
+  padding-right: 2.1875vw;
+  padding-bottom: 2.1875vw;
+  padding-top: 1.6667vw;
+}
+
+.caseOpeningTitle {
+  width: 100%;
+  font-family: "AkrobatBold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3266vw;
+  line-height: 90%;
+  color: #052374;
+}
+
+.casePrizeList {
+  width: 58.5vw;
+  display: flex;
+  gap: 1.3021vw;
+  overflow: hidden;
+}
+
+.casePrizeList2 {
+  width: 58.5vw;
+  display: flex;
+  gap: 1.3021vw;
+  overflow: scroll;
+}
+
+.casePrize {
+  padding: 1.3021vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10.6552vw;
+  min-width: 10.6552vw;
+  height: 10.0521vw;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.134vw solid rgba(255, 255, 255, 0.03);
+  border-radius: 0.9382vw;
+  gap: 1.8229vw;
+}
+
+.casePrizeName {
+  display: flex;
+  gap: 0.2604vw;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8042vw;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.casePrizeName p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8042vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.casePrizeImg {
+  width: 100%;
+  height: 3.8vw;
+  object-fit: contain;
+}
+
+.caseOpeningArrow {
+  position: absolute;
+  top: 0;
+  width: 3.1771vw;
+  height: 2.7604vw;
+}
+
+.productConfirmationPage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productConfirmationPage2 {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.productConfirmationBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+  padding: 2.2396vw;
+}
+
+.productConfirmationBox h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7292vw;
+  width: 28.4375vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5625vw;
+  line-height: 90%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.productConfirmationBox h2 p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5625vw;
+  line-height: 90%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.productConfirmationButtonBox {
+  display: flex;
+  gap: 0.7813vw;
+}
+
+.productConfirmationCancelButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 14.0104vw;
+  height: 2.7083vw;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.0485vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1184vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.31);
+  transition: 300ms;
+}
+
+.productConfirmationBuyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14.0104vw;
+  height: 2.7083vw;
+  background: #38de52;
+  border-radius: 1.0485vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1184vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms;
+}
+
+.productConfirmationBuyButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2.5521vw rgba(56, 222, 82, 0.37);
+}
+
+.productConfirmationCancelButton:hover {
+  cursor: pointer;
+  background: #d73737;
+  color: black;
+}
+
+/* ------------------------------------------------------ */
+
+.productRemboursementBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+  padding: 2.2396vw;
+}
+
+.productRemboursementBox h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7292vw;
+  width: 28.4375vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5625vw;
+  line-height: 90%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.productRemboursementBox h2 p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5625vw;
+  line-height: 90%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.productRemboursementButtonBox {
+  display: flex;
+  gap: 0.7813vw;
+}
+
+.productRemboursementCancelButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14.0104vw;
+  height: 2.7083vw;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.0485vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1184vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.31);
+  transition: 300ms;
+}
+
+.productRemboursementBuyButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 14.0104vw;
+  height: 2.7083vw;
+  background: #7498fc;
+  border-radius: 1.0485vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1184vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms;
+}
+
+.productConfirmationBuyButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2.5521vw rgba(56, 222, 82, 0.37);
+}
+
+.productConfirmationCancelButton:hover {
+  cursor: pointer;
+  background: #7498fc;
+  color: black;
+}
+
+/* ------------------------------------------------------ */
+
+.promoCodePage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promoCodeBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.6667vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+  padding: 2.4479vw 3.125vw;
+}
+
+.promoCodeTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7813vw;
+  width: 31.3927vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8949vw;
+  line-height: 114%;
+  text-align: center;
+  color: #470574;
+}
+
+.promoCodeTitle p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2633vw;
+  line-height: 114%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  text-align: center;
+}
+
+.input-container input {
+  width: 37.1875vw;
+  height: 3.5938vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.3542vw;
+  line-height: 114%;
+  outline: none;
+  color: rgba(255, 255, 255, 0.37);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.0521vw solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.7813vw;
+}
+
+.promoCodeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37.1875vw;
+  height: 3.3333vw;
+  background: #0857be;
+  border-radius: 1.2905vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.3765vw;
+  line-height: 90%;
+  color: #000000;
+  transition: 300ms;
+}
+
+.promoCodeButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 3.125vw rgba(0, 81, 255, 0.45);
+}
+
+.creditBuyPage {
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creditBuyBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3021vw;
+  background: radial-gradient(
+    67.13% 67.13% at 50% 50%,
+    rgba(21, 21, 21, 0.97) 0%,
+    #090909 100%
+  );
+  border: 0.1042vw solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25vw;
+  padding: 2.1875vw;
+}
+
+.creditBuyTitle {
+  align-items: flex-end;
+  display: flex;
+  gap: 1.4583vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5625vw;
+  line-height: 90%;
+  color: #164bdb;
+}
+
+.creditBuyTitle p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.0417vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.creditList {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.0417vw;
+  align-items: flex-start;
+  row-gap: 1.0417vw;
+  width: 49.7vw;
+  height: 23vw;
+  scroll-behavior: smooth;
+}
+
+.creditsBox {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.8333vw;
+  width: 11.5104vw;
+  min-width: 11.5104vw;
+  height: 10.9375vw;
+  padding: 0.8854vw;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.1042vw solid rgba(255, 255, 255, 0.03);
+  border-radius: 0.9896vw;
+}
+
+.creditsName {
+  display: flex;
+  flex-direction: column;
+  gap: 0.263vw;
+  text-align: center;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.131vw;
+  line-height: 90%;
+  color: #470574;
+}
+
+.creditsName p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15.2px;
+  line-height: 90%;
+  color: #ffffff;
+}
+
+.creditsImg {
+  width: 100%;
+  height: 3.6458vw;
+  object-fit: contain;
+}
+
+.creditsBuyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1.7708vw;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0.4688vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7917vw;
+  line-height: 90%;
+  color: rgba(255, 255, 255, 0.37);
+  transition: 300ms;
+}
+
+.creditsBuyButton:hover {
+  cursor: pointer;
+  background: #32e659;
+  color: black;
+  font-weight: 700;
+}
+
+.giveCreditBox {
+  padding-left: 0.9375vw;
+  padding-right: 0.9375vw;
+  display: flex;
+  align-items: center;
+  width: 49.1667vw;
+  height: 5.4688vw;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5729vw;
+  justify-content: space-between;
+}
+
+.giveCreditTitle {
+  width: 16.7708vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5208vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.0417vw;
+  line-height: 90%;
+  color: #1449db;
+}
+
+.giveCreditTitle p {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8333vw;
+  line-height: 127%;
+  color: #ffffff;
+}
+
+.giveCreditRightBox {
+  display: flex;
+  gap: 0.7292vw;
+}
+
+.giveCreditInputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3646vw;
+}
+
+.giveCreditInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.giveCreditInput-container {
+  text-align: center;
+}
+
+.giveCreditInput-container input {
+  width: 13.4896vw;
+  height: 1.6146vw;
+  padding-left: 0.5vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8333vw;
+  line-height: 90%;
+  outline: none;
+  color: rgba(255, 255, 255, 0.43);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.0521vw solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.4688vw;
+}
+
+.giveCreditButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.0313vw;
+  height: 3.5938vw;
+  background: #470574;
+  border-radius: 0.5729vw;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8333vw;
+  color: black;
+  transition: 300ms;
+}
+
+.giveCreditButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 1.9271vw rgba(255, 199, 0, 0.16);
+}
+
+#notify {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Barlow";
+  font-weight: bold;
+  color: white;
+  top: 10px;
+  left: 10px;
+  background: radial-gradient(
+        13.14% 23.72% at 100% 0%,
+        rgba(199, 53, 228, 0.2) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        39.21% 39.21% at 2.09% 0%,
+        rgba(59, 6, 102, 0.384) 0%,
+        rgba(0, 0, 0, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+      67.13% 67.13% at 50% 50%,
+      rgba(21, 21, 21, 0.95) 0%,
+      #090909 100%
+    );
+  border-radius: 0.9375vw;
+  width: auto;
+  padding: 20px;
+}
+
+.w,
+.s {
+  color: #fff;
+}
+
+.u {
+  color: #000000;
+}
+
+.r {
+  color: #cc0606;
+}
+
+.g {
+  color: #a3ff12;
+}
+
+.b {
+  color: #0099cc;
+}
+
+.y {
+  color: #8400ff;
+}
+
+.o {
+  color: #852ef7;
+}
+
+.p {
+  color: #651fff;
+}
+
+.h {
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

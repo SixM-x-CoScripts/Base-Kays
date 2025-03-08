@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.0);
+    display: none;
+    z-index: 9;
+}
+
+.elevator {
+    background-color: #0000009c;
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    z-index: 10;
+    text-align: center;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-itSAMS: center;
+    justify-content: center;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+}
+
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
+}
+
+.elevator-title-leeta {
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.elevator-title-etage {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.elevator p {
+    color: white;
+}
+
+.elevator-subtitle {
+    color: #e0e0e0;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.floor-buttons-leeta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+}
+
+.floor-button {
+    background-color: #00000073;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    font-size: 20px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-itSAMS: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-top 0.3s, transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+    border-top: 4px solid #033bd4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+}
+
+.floor-button:hover {
+    background-color: #000000;
+    border-top: 4px solid #034cd4;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.floor-button.active {
+    background-color: #5a8ccd;
+    border-top: 4px solid #033bd4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}

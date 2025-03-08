@@ -1,0 +1,263 @@
+[
+  {
+    "category": {
+      "name": "color",
+      "data": [
+        {
+          "color": "#1e1e20"
+        },
+        {
+          "color": "#282a2a"
+        },
+        {
+          "color": "#302e2e"
+        },
+        {
+          "color": "#37261c"
+        },
+        {
+          "color": "#4a301f"
+        },
+        {
+          "color": "#5b3b24"
+        },
+        {
+          "color": "#6b4d35"
+        },
+        {
+          "color": "#6b4f3a"
+        },
+        {
+          "color": "#745c43"
+        },
+        {
+          "color": "#7d6850"
+        },
+        {
+          "color": "#99815d"
+        },
+        {
+          "color": "#a79169"
+        },
+        {
+          "color": "#b09d72"
+        },
+        {
+          "color": "#bea465"
+        },
+        {
+          "color": "#d6b87b"
+        },
+        {
+          "color": "#dac388"
+        },
+        {
+          "color": "#9f7e58"
+        },
+        {
+          "color": "#85503c"
+        },
+        {
+          "color": "#672b1e"
+        },
+        {
+          "color": "#60140f"
+        },
+        {
+          "color": "#61100a"
+        },
+        {
+          "color": "#7e150f"
+        },
+        {
+          "color": "#a32e19"
+        },
+        {
+          "color": "#b74b28"
+        },
+        {
+          "color": "#a5512f"
+        },
+        {
+          "color": "#ac4e2b"
+        },
+        {
+          "color": "#616160"
+        },
+        {
+          "color": "#808080"
+        },
+        {
+          "color": "#aaaaaa"
+        },
+        {
+          "color": "#c5c5c4"
+        },
+        {
+          "color": "#453957"
+        },
+        {
+          "color": "#5a3f6a"
+        },
+        {
+          "color": "#743b74"
+        },
+        {
+          "color": "#e871df"
+        },
+        {
+          "color": "#e54a8d"
+        },
+        {
+          "color": "#ee96b8"
+        },
+        {
+          "color": "#419754"
+        },
+        {
+          "color": "#2652fb"
+        },
+        {
+          "color": "#213297"
+        },
+        {
+          "color": "#3b9f69"
+        },
+        {
+          "color": "#21765e"
+        },
+        {
+          "color": "#165853"
+        },
+        {
+          "color": "#acb831"
+        },
+        {
+          "color": "#6aa10b"
+        },
+        {
+          "color": "#409613"
+        },
+        {
+          "color": "#d3b052"
+        },
+        {
+          "color": "#dda90d"
+        },
+        {
+          "color": "#dd8a00"
+        },
+        {
+          "color": "#e0802e"
+        },
+        {
+          "color": "#ea7750"
+        },
+        {
+          "color": "#d28254"
+        },
+        {
+          "color": "#c25337"
+        },
+        {
+          "color": "#bf2e1f"
+        },
+        {
+          "color": "#a20701"
+        },
+        {
+          "color": "#810300"
+        },
+        {
+          "color": "#1d1614"
+        },
+        {
+          "color": "#231e19"
+        },
+        {
+          "color": "#2b201c"
+        },
+        {
+          "color": "#36251c"
+        },
+        {
+          "color": "#2b1f17"
+        },
+        {
+          "color": "#1e1916"
+        }
+      ]
+    }
+  },
+  {
+    "category": {
+      "name": "makeup",
+      "data": [
+        { "color": "#1c1f21" },
+        { "color": "#272a2c" },
+        { "color": "#312e2c" },
+        { "color": "#35261c" },
+        { "color": "#4b321f" },
+        { "color": "#5c3b24" },
+        { "color": "#6d4c35" },
+        { "color": "#6b503b" },
+        { "color": "#765c45" },
+        { "color": "#7f684e" },
+        { "color": "#99815d" },
+        { "color": "#a79369" },
+        { "color": "#af9c70" },
+        { "color": "#bba063" },
+        { "color": "#d6b97b" },
+        { "color": "#dac38e" },
+        { "color": "#9f7f59" },
+        { "color": "#845039" },
+        { "color": "#682b1f" },
+        { "color": "#61120c" },
+        { "color": "#640f0a" },
+        { "color": "#7c140f" },
+        { "color": "#a02e19" },
+        { "color": "#b64b28" },
+        { "color": "#a2502f" },
+        { "color": "#aa4e2b" },
+        { "color": "#626262" },
+        { "color": "#808080" },
+        { "color": "#aaaaaa" },
+        { "color": "#c5c5c5" },
+        { "color": "#463955" },
+        { "color": "#5a3f6b" },
+        { "color": "#763c76" },
+        { "color": "#ed74e3" },
+        { "color": "#eb4b93" },
+        { "color": "#f299bc" },
+        { "color": "#04959e" },
+        { "color": "#025f86" },
+        { "color": "#023974" },
+        { "color": "#3fa16a" },
+        { "color": "#3fa16a" },
+        { "color": "#185c55" },
+        { "color": "#b6c034" },
+        { "color": "#70a90b" },
+        { "color": "#439d13" },
+        { "color": "#dcb857" },
+        { "color": "#e5b103" },
+        { "color": "#e69102" },
+        { "color": "#f28831" },
+        { "color": "#fb8057" },
+        { "color": "#e28b58" },
+        { "color": "#d1593c" },
+        { "color": "#ce3120" },
+        { "color": "#ad0903" },
+        { "color": "#880302" },
+        { "color": "#1f1814" },
+        { "color": "#291f19" },
+        { "color": "#2e221b" },
+        { "color": "#37291e" },
+        { "color": "#2e2218" },
+        { "color": "#231b15" },
+        { "color": "#020202" },
+        { "color": "#020202" },
+        { "color": "#9d7a50" }
+      ]
+    }
+  }
+]
